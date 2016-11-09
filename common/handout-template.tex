@@ -1,0 +1,19 @@
+% Used to produce printable handouts in portrait mode
+% with two framed beamer-frames per page
+%
+% Call this template like in the following example:
+% \newcommand{\filename}{cisco-beginner.pdf}
+% \input{../common/handout-template.tex}
+
+\documentclass[a4paper]{article}
+\usepackage{pdfpages}
+\begin{document}
+	\includepdf[%pages=-,%pages=1-last,
+				pages={1,{},2-last},
+				nup=1x2,
+				landscape=false,
+				frame=true,
+				noautoscale=true, scale=1.4,
+				delta=0mm 5mm
+				]{\filename}
+\end{document}
