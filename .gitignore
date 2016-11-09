@@ -1,0 +1,6 @@
+*.*
+!.gitignore
+!*.tex
+!*.txt
+!/common/images/*.png
+!/common/images/*.jpg
