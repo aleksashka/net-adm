@@ -61,10 +61,14 @@
 		\item Open Systems Interconnection model (\wiki{OSI model}{OSI_model})
 		\item Internet protocol suite (\wiki{TCP/IP stack}{IP_stack}, \rfc{1122})
 	\end{itemize}
-	\onslide<3->
+	\onslide<3-4>
 	\begin{center}
-	%Works almost fine, but first column should disappear fully (not just text)
-	\begin{tabular}{|>{\onslide<4->}l<{\onslide<3->}|l|l|l|}
+    \newcolumntype{G}{|l}
+    \only<beamer>{
+      \only<3>{\newcolumntype{G}{@{}>{\Gobble}l<{\EndGobble}@{}}}
+    }
+
+     \begin{tabular}{G|l|l|l|}
 		\hline
 		\textbf{Mnemonic}&  \textbf{\#} & \textbf{OSI} & \textbf{TCP/IP}              \\ \hline
 		All              &  7           & Application  & \multirow{3}{*}{Application} \\ \cline{1-3}
