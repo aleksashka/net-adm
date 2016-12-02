@@ -1,0 +1,14 @@
+List
+Check for multiple tables of contents (LaTeX)
+	Use shorttoc package: 
+- [ ] [intr] Introduction
+	- [ ] Prerequisites
+	- [ ] Course goals
+	- [ ] Timing
+	- [ ] Introduce Yourself
+- [ ] [meet] Meet the Network
+	- [ ] Network Components
+	- [ ] Network Characteristics
+	- [ ] Network Protocols
+	- [ ] Communication Models
+- [ ] 
