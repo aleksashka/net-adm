@@ -1,6 +1,4 @@
-List
-Check for multiple tables of contents (LaTeX)
-	Use shorttoc package: 
+ToC:
 - [ ] [intr] Introduction
 	- [ ] Prerequisites
 	- [ ] Course goals
@@ -12,3 +10,10 @@ Check for multiple tables of contents (LaTeX)
 	- [ ] Network Protocols
 	- [ ] Communication Models
 - [ ] 
+
+Reminders:
+- [ ] IOS DHCP client/server and relay before VLANs
+- [ ] Internal/external static routing before NAT
+
+Check for multiple tables of contents (LaTeX)
+	Use shorttoc package?
