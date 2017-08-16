@@ -1,0 +1,82 @@
+\section[ipv4]{Layer 3 (Internet Protocol)}
+
+\begin{frame}{Internet Protocol}
+	\begin{itemize}
+		\item IP Address and mask
+		\item Binary-Decimal-Binary conversion
+		\item Meaning of the mask
+		\item Default Gateway
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{IP Address and mask}
+	\begin{itemize}[<+->]
+		\item \rfc{791}
+		\item \wiki{Internet Protocol}{Internet_Protocol}
+		\item 32-bit length (4 294 967 296 addresses)
+		\item Divided into 4 octets (bytes)
+		\item Each octet is converted from binary to decimal
+		\item \texttt{00001010 00000001 00000001 01100100}
+		\item 10.1.1.100
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Binary-Decimal-Binary conversion}
+	\texttt{
+		\begin{center}
+			\begin{tabular}[t]{r}
+				Decimal \\ \pause
+				{[0-9]}	\\ \pause
+				0	\\ \pause
+				1	\\ \pause
+				2	\\ \pause
+				...	\\ \pause
+				9	\\ \pause
+				10	\\ \pause
+				... \\ \pause
+				99	\\ \pause
+				100\\ \pause
+			\end{tabular}
+			\hspace{1.5cm}
+			\begin{tabular}[t]{r r}
+				Decimal		&	Binary	\\
+				{[0-9]}		&	[0-1]	\\ \hline \pause
+				0	\pause	&	0		\\ \pause
+				1	\pause	&	1		\\ \pause
+				2	\pause	&	10		\\ \pause
+				3	\pause	&	11		\\ \pause
+				4	\pause	&	100		\\ \pause
+				5	\pause	&	101		\\ \pause
+				6	\pause	&	110		\\ \pause
+				7	\pause	&	111
+			\end{tabular}
+		\end{center}
+	}
+\end{frame}
+
+\begin{frame}{Binary to Decimal conversion}
+	\texttt{
+		\begin{center}
+			\begin{tabular}{*{9}c}
+				2\textsuperscript{7} & 2\textsuperscript{6} & 2\textsuperscript{5} & 
+				2\textsuperscript{4} & 2\textsuperscript{3} & 2\textsuperscript{2} &
+				2\textsuperscript{1} & 2\textsuperscript{0} \\ \pause
+				128 & 64 & 32 & 16 & 8 & 4 & 2 & 1 \\ \pause
+				  0 &  1 &  0 &  0 & 0 & 1 & 0 & 1 \\ \pause
+				    & 64 &    &    &   & 4 &   & 1 \pause & 69 \\
+			\end{tabular}
+		\end{center}
+	}
+\end{frame}
+
+\begin{frame}{Decimal to Binary conversion}
+	\texttt{
+		\begin{center}
+			\begin{tabular}{*{9}c}
+				          & 128 & 64 & 32        & 16 &  8        & 4        & 2        & 1 \\
+				46 \pause &     &    & 46 \pause &    & 14 \pause & 6 \pause & 2 \pause &   \\
+				          &   0 &  0 &  1        &  0 &  1        & 1        & 1        & 0 \\
+			\end{tabular}
+		\end{center}
+	}
+\end{frame}

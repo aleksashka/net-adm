@@ -18,8 +18,8 @@
 		- [x] TCP/IP Stack
 	- [x] Wireshark Capture
 - [ ] [ipv4] Layer 3 (IPv4)
-	- [ ] IP Address and mask
-	- [ ] Binary-Decimal-Binary conversion
+	- [x] IP Address and mask
+	- [x] Binary-Decimal-Binary conversion
 	- [ ] Meaning of the mask
 	- [ ] Default Gateway
 	- [ ] Types of IP Addresses
