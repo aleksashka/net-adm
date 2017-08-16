@@ -1,19 +1,139 @@
-ToC:
-- [ ] [intr] Introduction
-	- [ ] Prerequisites
-	- [ ] Course goals
-	- [ ] Timing
-	- [ ] Introduce Yourself
-- [ ] [meet] Meet the Network
-	- [ ] Network Components
-	- [ ] Network Characteristics
-	- [ ] Network Protocols
-	- [ ] Communication Models
-- [ ] 
+## ToC
+- [x] [intr] Introduction
+	- [x] Prerequisites
+	- [x] Course goals
+	- [x] Timing and environment
+	- [x] Introduce Yourself
+- [x] [meet] Meet the Network
+	- [x] Network Components
+	- [x] Network Characteristics
+		- [x] Size vs Scalability
+		- [x] Topology
+		- [x] Security
+		- [x] Reliability
+		- [x] Availability
+	- [x] Examples of Network Protocols
+	- [x] Communication Models
+		- [x] OSI
+		- [x] TCP/IP Stack
+	- [x] Wireshark Capture
+- [ ] [ipv4] Layer 3 (IPv4)
+	- [ ] IP Address and mask
+	- [ ] Binary-Decimal-Binary conversion
+	- [ ] Meaning of the mask
+	- [ ] Default Gateway
+	- [ ] Types of IP Addresses
+		- [ ] Unicast
+		- [ ] Multicast
+		- [ ] Broadcast
+		- [ ] Classes
+	- [ ] Routing
+		- [ ] Static
+			- [ ] Floating (higher AD)
+		- [ ] Dynamic
+			- [ ] RIP
+	- [ ] Subnetting
+		- [ ] Give large change using banknotes
+- [ ] [ethr] Layer 2 (Ethernet)
+	- [ ] Cabling and connectors
+	- [ ] Duplex, collisions, speed
+	- [ ] Frame structure and size
+	- [ ] Types of addresses and communication
+		- [ ] Unicast
+		- [ ] Multicast
+		- [ ] Broadcast
+	- [ ] Ethernet Switches
+		- [ ] MAC Learning
+		- [ ] Frame Processing
+			- [ ] Flood
+			- [ ] Forward
+			- [ ] Filter
+	- [ ] Port security
+		- [ ] Types of addresses
+		- [ ] Violation
+		- [ ] Recovery
+- [ ] [locl] Intranet
+	- [ ] Client-Server Applications
+		- [ ] HTTP(S)
+		- [ ] FTP
+		- [ ] TCP/UDP
+			- [ ] Reliability vs Real-Time issues
+				- [ ] Compare FTP and TFTP
+			- [ ] Client/Server port numbers
+	- [ ] DHCP
+		- [ ] Client
+		- [ ] Server
+		- [ ] Relay
+	- [ ] VLANs
+		- [ ] Access port
+			- [ ] Access VLAN
+			- [ ] Voice VLAN
+		- [ ] Trunk port
+			- [ ] 802.1q
+			- [ ] Native VLAN
+			- [ ] Allowed VLANs
+		- [ ] Router on a Stick
+- [ ] [inet] Internet
+	- [ ] Firewall
+		- [ ] ACL
+	- [ ] DNS
+	- [ ] Public and Private IPv4 Addresses
+	- [ ] NAT
+		- [ ] Dynamic
+		- [ ] PAT
+		- [ ] Static
+- [ ] [mgmt] Management
+	- [ ] Telnet/SSH
+		- [ ] Lines
+			- [ ] Console
+			- [ ] VTY
+			- [ ] exec-timeout
+			- [ ] logging synchronous
+		- [ ] Usernames and passwords
+			- [ ] Passwords
+			- [ ] Secrets
+			- [ ] AAA
+		- [ ] Privilege levels
+		- [ ] Login Enhancements
+			- [ ] On-failure, on-success
+			- [ ] Block-for
+	- [ ] Loopback interfaces
+	- [ ] CDP
+	- [ ] LLDP
+	- [ ] Time
+		- [ ] NTP
+		- [ ] Timezone
+	- [ ] Logging
+		- [ ] Console
+		- [ ] Buffer
+		- [ ] Terminal
+		- [ ] Syslog
+- [ ] [misc] Miscellaneous
+	- [ ] IOS Upgrades
+	- [ ] Password recovery
+	- [ ] File systems
+	- [ ] Configuration backups
+		- [ ] Manual
+		- [ ] Archive
+		- [ ] Centralized
+	- [ ] TCP Keepalives
+	- [ ] Domain-lookup
+- [ ] [ipv6] IPv6
+	- [ ] Types of Addresses
+		- [ ] Link Local
+		- [ ] Unique Local
+		- [ ] Global Unicast
+		- [ ] Multicast
+		- [ ] Anycast
+	- [ ] Address Assignment
+		- [ ] Static
+		- [ ] SLAAC
+		- [ ] DHCP
 
-Reminders:
-- [ ] IOS DHCP client/server and relay before VLANs
-- [ ] Internal/external static routing before NAT
+## Reminders:
+- [ ] A lot of small practice exercises!
+- [x] IOS DHCP client/server and relay before VLANs
+- [x] Internal/external static routing before NAT
 
-Check for multiple tables of contents (LaTeX)
-	Use shorttoc package?
+Check for multiple tables of contents (LaTeX):
+- Use shorttoc package?
