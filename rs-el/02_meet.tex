@@ -19,10 +19,11 @@
 		\item Radio Frequency
 	\end{itemize}
 \end{frame}
+
 \begin{frame}{Network Characteristics}
 	\begin{itemize}[<+->]
 		\item Size vs Scalability
-		\item Topology (physical vs logical)
+		\item \wiki{Topology}{Network_Topology} (physical vs logical)
 		\item Security:
 		\begin{itemize}
 			\item Data traffic security
@@ -36,7 +37,7 @@
 \begin{frame}{Diagram of the First Internetworked Connection}
 	\begin{figure}
 		\includegraphics[width=300pt]{../common/images/SRI_First_Internetworked_Connection_diagram.jpg}\\
-		{\scriptsize https://en.wikipedia.org/wiki/File:SRI\_First\_Internetworked\_Connection\_diagram.jpg}
+		{\scriptsize wikipedia.org}
 	\end{figure}
 \end{frame}
 
@@ -56,6 +57,7 @@
 		\end{itemize}
 	\end{itemize}
 \end{frame}
+
 \begin{frame}{Communication Models}
 	\begin{itemize}[<+->]
 		\item Open Systems Interconnection model (\wiki{OSI model}{OSI_model})
@@ -63,39 +65,43 @@
 	\end{itemize}
 	\onslide<3-4>
 	\begin{center}
-	\newcolumntype{G}{|l}
-	\only<beamer>{ \only<3>{\newcolumntype{G}{@{}>{\Gobble}l<{\EndGobble}@{}}} }
+		\newcolumntype{G}{|l}
+		\only<beamer>{ \only<3>{\newcolumntype{G}{@{}>{\Gobble}l<{\EndGobble}@{}}} }
 
-	\begin{tabular}{G|l|l|l|}
-	\hline
-		\textbf{Mnemonic}&  \textbf{\#} & \textbf{OSI} & \textbf{TCP/IP}              \\ \hline
-		All              &  7           & Application  & \multirow{3}{*}{Application} \\ \cline{1-3}
-		People           &  6           & Presentation &                              \\ \cline{1-3}
-		Seem             &  5           & Session      &                              \\ \hline
-		To               &  4           & Transport    & Transport                    \\ \hline
-		Need             &  3           & Network      & Internet                     \\ \hline
-		Data             &  2           & Data Link    & \multirow{2}{*}{Link Access} \\ \cline{1-3}
-		Processing       &  1           & Physical     &                              \\ \hline
-	\end{tabular}
+		\begin{tabular}{G|l|l|l|}
+		\hline
+			\textbf{Mnemonic}&  \textbf{\#} & \textbf{OSI} & \textbf{TCP/IP}              \\ \hline
+			All              &  7           & Application  & \multirow{3}{*}{Application} \\ \cline{1-3}
+			People           &  6           & Presentation &                              \\ \cline{1-3}
+			Seem             &  5           & Session      &                              \\ \hline
+			To               &  4           & Transport    & Transport                    \\ \hline
+			Need             &  3           & Network      & Internet                     \\ \hline
+			Data             &  2           & Data Link    & \multirow{2}{*}{Link Access} \\ \cline{1-3}
+			Processing       &  1           & Physical     &                              \\ \hline
+		\end{tabular}
 	\end{center}
 \end{frame}
+
 \begin{frame}{Data Flow}
 	\begin{figure}
 		\includegraphics[width=300pt]{../common/images/IP_stack_connections_flow.png}\\
-		{\scriptsize https://en.wikipedia.org/wiki/File:IP\_stack\_connections.svg}
+		{\scriptsize wikipedia.org}
 	\end{figure}
 \end{frame}
+
 \begin{frame}{Wireshark Capture}
 	\begin{figure}
 		\includegraphics[width=300pt]{../common/images/Wireshark__ARP_or_ICMP.png} \newline \newline
 		Get Wireshark at \texttt{\href{https://wireshark.org/}{https://wireshark.org/}}
 	\end{figure}
 \end{frame}
+
 \begin{frame}<handout:0>{Wireshark Capture (Cont.)}
 	\begin{figure}
 		\includegraphics[width=300pt]{../common/images/Wireshark__ARP_or_ICMP_zoom.png}
 	\end{figure}
 \end{frame}
+
 \begin{frame}<handout:0>{Wireshark Capture (Cont.)}
 	\begin{figure}
 		\includegraphics[width=300pt]{../common/images/Wireshark__ARP_or_ICMP_zoom_with_lines.png}
