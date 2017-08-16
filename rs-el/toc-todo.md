@@ -17,20 +17,20 @@
 		- [x] OSI
 		- [x] TCP/IP Stack
 	- [x] Wireshark Capture
-- [ ] [ipv4] Layer 3 (IPv4)
+- [x] [ipv4] Layer 3 (Internet Protocol)
 	- [x] IP Address and mask
 	- [x] Binary-Decimal-Binary conversion
-		- [ ] Give change using banknotes (one of each type)
-	- [ ] Meaning of the mask
-	- [ ] IP Address related commands
-	- [ ] Types of IP Addresses
-		- [ ] Unicast
-		- [ ] Multicast
-		- [ ] Broadcast
-		- [ ] Classes
-	- [ ] Routing
-		- [ ] Static
-	- [ ] Default Gateway
+		- [x] Give change using banknotes (one of each type)
+	- [x] Meaning of the mask
+	- [x] IP Address related commands
+	- [x] Types of IP Addresses
+		- [x] Unicast
+		- [x] Multicast
+		- [x] Broadcast
+		- [x] Classes
+	- [x] Routing
+		- [x] Static
+	- [x] Default Gateway
 - [ ] [ethr] Layer 2 (Ethernet)
 	- [ ] Cabling and connectors
 	- [ ] Duplex, collisions, speed

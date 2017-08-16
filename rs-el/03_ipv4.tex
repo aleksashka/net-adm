@@ -1,10 +1,13 @@
 \section[ipv4]{Layer 3 (Internet Protocol)}
 
-\begin{frame}{Internet Protocol}
+\begin{frame}{LAYER 3 (INTERNET PROTOCOL)}
 	\begin{itemize}
 		\item IP Address and mask
 		\item Binary-Decimal-Binary conversion
 		\item Meaning of the mask
+		\item Cisco commands
+		\item Types and Classes of IP Addresses
+		\item Static IP Routing
 		\item Default Gateway
 	\end{itemize}
 \end{frame}
@@ -72,6 +75,8 @@
 \end{frame}
 
 \begin{frame}{Decimal to Binary conversion}
+	\only<beamer>{\only<1>{\textit{Change analogy}}}
+	\pause
 	\texttt{
 		\begin{center}
 			\begin{tabular}{*{9}c}
@@ -81,4 +86,103 @@
 			\end{tabular}
 		\end{center}
 	}
+\end{frame}
+
+\begin{frame}{Meaning of the Mask}
+	\texttt{
+		\onslide<3->{\\10.1.1.100 255.255.255.0}
+		\onslide<4->{\\10.1.1.100/24\vspace{0.2cm}}
+		\only<9->{\\10.1.1.0\\10.1.1.1\\10.1.1.254\\10.1.1.255\vspace{0.2cm}}
+		\only<1,3->{\\00001010 00000001 00000001 01100100\hspace{0.5cm}IP Address}
+		\only<2|handout:0>{\\00001010 00000001 00000001\colorbox{green}{01100100}\hspace{0.5cm}IP Address}
+		\onslide<2->{\\11111111 11111111 11111111 00000000\hspace{0.5cm}Mask
+		\onslide<5->{\noindent\rule[0.5ex]{\linewidth}{0.7pt}}
+		\onslide<5->{\\00001010 00000001 00000001 00000000\hspace{0.5cm}Network Ad.}
+		\onslide<7->{\\00001010 00000001 00000001 00000001\hspace{0.5cm}First Ad.}
+		\onslide<8->{\\00001010 00000001 00000001 11111110\hspace{0.5cm}Last Address}
+		\onslide<6->{\\00001010 00000001 00000001 11111111\hspace{0.5cm}Broadcast}
+		%\vspace{0.2cm}
+		}
+	}
+\end{frame}
+
+\begin{frame}{Commands: Hostname, IP Address, Save Config}
+	\texttt{
+		\only<2-3|handout:0>{\pause\\\textit{Press RETURN to get started}
+		\vspace{0.5cm}}
+		\pause\\Router>\onslide<4->{\underline{en}able} \hfill \only<3,5->{User EXEC mode}\only<4|handout:0>{Go to Privileged EXEC}
+		\pause\pause\pause\\Router\#\onslide<5->{\underline{conf}igure \underline{t}erminal} \hfill Privileged EXEC mode
+		\pause\\Router(config)\#hostname R\hfill Configuration mode
+		\pause\\R(config)\#\pause interface GigabitEthernet0/1
+		\pause\\R(config-if)\#ip address 10.1.1.1 255.255.255.0
+		\pause\\R(config-if)\#no shutdown
+		\pause\\R(config-if)\#exit \only<beamer>{\hfill or \underline{end} to go to \#}
+		\pause\\R(config)\#exit
+		\pause\\R\#show startup-config
+		\pause\\R\#show running-config \pause {[ interface \{ gi0/1 \} ]}
+		\pause\\R\#show ip interface [ gi0/1 | brief [ gi0/1 ] ]
+		\pause\\R\#copy running-config startup-config
+		\pause\\Destination filename [startup-config]?%\hfill <ENTER>
+		\pause\\Building configuration...
+		\\{[OK]}
+		%\pause\\
+	}
+\end{frame}
+
+\begin{frame}{Types and Classes of IP Addresses}
+	\begin{itemize}[<+->]
+		\item Localhost: Local communications only (127.0.0.0/8)
+		\item Unicast: One-to-one communication (e.g. 10.1.1.1)
+		\item Multicast: One-to-many communication (e.g. 224.0.0.9)
+		\item Local Broadcast: One to all local hosts (255.255.255.255)
+		\item Directed Broadcast: One to all hosts in remote network (e.g. 172.16.255.255)
+	\end{itemize}
+	%\vspace{0.5cm}
+	\onslide<6->{
+		\begin{center}
+			\begin{tabular}{*{9}l}
+				Class & First bits &        First octet & Default mask    \\ \pause
+				A     & 0          & \pause 1-126       & 255.0.0.0       \\ \pause
+				B     & 10         & \pause 128-191     & 255.255.0.0     \\ \pause
+				C     & 110        & \pause 192-223     & 255.255.255.0   \\ \pause
+				D     & 1110       & \pause 224-239     & Multicast range \\ \pause
+				E     & 1111       & \pause 240-255     & Reserved
+			\end{tabular}
+		\end{center}
+	}
+\end{frame}
+
+\begin{frame}{Routing}
+	\begin{itemize}[<+->]
+		\item \wiki{Packet switching}{Packet_switching}
+		\item \texttt{show ip route} (EXEC command) shows routing table
+		\item C (Connected) routes are "interface" routes
+		\item Routers can only reach known networks
+		\item If destination address of an incoming packet is not in the routing table, then the packet is dropped
+		\item Routers should "learn" all routes they need using:
+		\begin{itemize}
+			\item Static routing (manual configuration):
+			\begin{itemize}
+				\item \texttt{ip route 192.168.1.0 255.255.255.0 10.1.1.2}
+			\end{itemize}
+			\item Dynamic routing (automatically):
+			\begin{itemize}
+				\item RIP
+				\item EIGRP
+				\item OSPF
+				\item BGP
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Default Gateway}
+	\begin{itemize}[<+->]
+		\item Communication to hosts in the same network (identical network bits) is direct
+		\item Communication to hosts outside local network is via default gateway (should be in the same network)
+		\item 10.1.1.100/24 $\rightarrow$ 10.1.1.200 [Direct or via DG]?
+		\item 10.1.1.100/24 $\rightarrow$ 10.1.2.200 [Direct or via DG]?
+		\item 10.1.1.100/24 $\rightarrow$ 10.2.1.200 [Direct or via DG]?
+		\item 10.1.1.100/24 $\rightarrow$ 20.1.1.200 [Direct or via DG]?
+	\end{itemize}
 \end{frame}
