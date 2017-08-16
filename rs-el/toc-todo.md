@@ -20,8 +20,9 @@
 - [ ] [ipv4] Layer 3 (IPv4)
 	- [x] IP Address and mask
 	- [x] Binary-Decimal-Binary conversion
+		- [ ] Give change using banknotes (one of each type)
 	- [ ] Meaning of the mask
-	- [ ] Default Gateway
+	- [ ] IP Address related commands
 	- [ ] Types of IP Addresses
 		- [ ] Unicast
 		- [ ] Multicast
@@ -29,11 +30,7 @@
 		- [ ] Classes
 	- [ ] Routing
 		- [ ] Static
-			- [ ] Floating (higher AD)
-		- [ ] Dynamic
-			- [ ] RIP
-	- [ ] Subnetting
-		- [ ] Give large change using banknotes
+	- [ ] Default Gateway
 - [ ] [ethr] Layer 2 (Ethernet)
 	- [ ] Cabling and connectors
 	- [ ] Duplex, collisions, speed
@@ -73,6 +70,11 @@
 			- [ ] Native VLAN
 			- [ ] Allowed VLANs
 		- [ ] Router on a Stick
+	- [ ] Routing
+		- [ ] Static
+			- [ ] Floating (higher AD)
+		- [ ] Dynamic
+			- [ ] RIP
 - [ ] [inet] Internet
 	- [ ] Firewall
 		- [ ] ACL
