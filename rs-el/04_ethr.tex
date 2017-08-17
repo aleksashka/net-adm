@@ -1,0 +1,175 @@
+\section[ethr]{Layer 2 (Ethernet)}
+
+\begin{frame}{LAYER 2 (ETHERNET)}
+	\begin{itemize}
+		\item Cabling and Connectors
+		\item Collisions and duplex
+		\item Ethernet frame structure
+		\item Structure and types of MAC addresses
+		\item Ethernet Switches
+		\item Port Security
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Cabling and Connectors}
+	Cables:\pause
+	\begin{itemize}[<+->]
+		\item \wiki{Coaxial cable}{Coaxial_cable}
+		\item \wiki{Twisted pair}{Twisted_pair}
+		\item \wiki{Optical fiber cable}{Optical_fiber_cable}
+	\end{itemize}
+	\onslide<5->{\vspace{0.5cm}Connectors:}\pause
+	\begin{itemize}[<+->]
+		\item \wiki{Twisted pair connectors}{Modular_connector\#8P8C}
+		\begin{itemize}
+			\item \wiki{T568A/T568B}{TIA/EIA-568\#Wiring}
+			\item Straight-through cable
+			\begin{itemize}
+				\item Hubs/Switches to other devices
+			\end{itemize}
+			\item Crossover cable
+			\begin{itemize}
+				\item Hubs/Switches to Hubs/Switches
+				\item Other devices to other devices
+			\end{itemize}
+		\end{itemize}
+		\item \wiki{Optical fiber connector}{Optical_fiber_connector}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Collisions and duplex}
+	\wiki{Carrier-sense multiple access with collision detection (CSMA/CD, half-duplex)}{Carrier-sense_multiple_access_with_collision_detection}\pause
+	\begin{itemize}[<+->]
+		\item Is medium idle?
+		\item Transmit a frame and monitor for collision
+		\item If collision occurs:
+		\begin{itemize}
+			\item Send jam signal (make sure collision is detected)
+			\item Wait random time (based on number of attempts)
+			\item Try sending the frame again
+		\end{itemize}
+	\end{itemize}
+	\onslide<8->{\wiki{Half-duplex}{Half-duplex}}\pause
+	\begin{itemize}[<+->]
+		\item CSMA/CD
+		\item Hub
+	\end{itemize}
+	\onslide<11->{\wiki{Full-duplex}{Full-duplex}}\pause
+	\begin{itemize}[<+->]
+		\item \sout{CSMA/CD}
+		\item Switch
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Ethernet frame structure}
+	\wiki{Ethernet frame}{Ethernet_frame} structure\pause
+	\begin{itemize}[<+->]
+		\item Preamble (7 bytes)
+		\item Start of frame delimiter (1 byte)
+		\item MAC destination (6 bytes)
+		\item MAC source (6 bytes)
+		\item Ethertype (2 bytes)
+		\item Payload (46-1500 bytes)
+		\item Frame check sequence (4 bytes)
+		\item Interpacket gap (12 bytes)
+	\end{itemize}
+	\only<10-|handout:0>{Wireshark lab\pause
+		\begin{itemize}[<+->]
+			\item Which fields are not shown in Wireshark and why?
+		\end{itemize}
+	}
+\end{frame}
+
+\begin{frame}{Structure and types of MAC addresses}
+	\wiki{MAC address}{MAC_address} structure\pause
+	\begin{itemize}[<+->]
+		\item Total length is 6 bytes (48 bits, 12 hex characters)
+		\item First half is Organisationally Unique Identifier (OUI)
+		\begin{itemize}
+			\item 7th bit (U/L or LG bit) shows if address is universally/globally (0) or locally administered (1)
+			\item 8th bit (U/M or IG bit) determines unicast/individual (0) or multicast/group (1) frame
+		\end{itemize}
+		\item Second half is NIC specific
+	\end{itemize}
+	\onslide<7->{MAC address types}\pause
+	\begin{itemize}[<+->]
+		\item Unicast (received by single host)
+		\item Multicast (received by multiple hosts)
+		\item Broadcast (received by all hosts)
+	\end{itemize}
+	\only<11-|handout:0>{Wireshark lab\pause
+		\begin{itemize}[<+->]
+			\item Find OUI, LG and IG fields
+		\end{itemize}
+	}
+\end{frame}
+
+\begin{frame}{Ethernet Switches}
+	\begin{itemize}[<+->]
+		\item Process frames based on MAC Address Table state:
+		\begin{itemize}
+			\item Flood (send frame from one port to all other ports) unknown unicast, multicast and broadcast
+			\item Forward (send frame from one port to another) known unicast
+			\item Filter (do not send anywhere) frames which do not need to be forwarded
+		\end{itemize}
+		\item Learn MAC Addresses (fill MAC Addres Table)
+	\end{itemize}
+	\onslide<6->
+	\texttt{
+		\\      \#show interface status
+		\\\pause\#show mac address-table interface \textit{type number}
+		\\\pause\#show mac address-table address \textit{mac-addr}
+	}
+	\\\vspace{0.3cm}
+	\hspace{2cm}
+	\begin{tabular}{ll}
+		  \pause \texttt{Interface}	&\texttt{MAC Address}
+		\\\pause \texttt{Gi0/5}		&\texttt{0123.4567.89ab}
+		\\\pause \texttt{Gi0/%
+		 \only<11>          {6}%
+		 \only<12|handout:0>{5}}	&\texttt{0123.4567.89ac}
+	\end{tabular}\\
+\end{frame}
+
+\begin{frame}{Port Security}
+	Restricts input to an interface by limiting and identifying MAC addresses
+	\vspace{0.3cm}
+	\texttt{
+		\\\pause )\#interface FastEthernet0/2
+		\\\pause -if)\#\underline{sw}itchport mode access
+		\\\pause -if)\#sw \underline{po}rt-security maximum \textit{maximum}
+		\\\pause -if)\#sw po mac-address \textit{mac-addr}
+		\\\pause -if)\#sw po mac-address sticky \pause\textit{[mac-addr]}
+		\hangindent=2em{
+		\\\pause -if)\#sw po violation \{ protect | restrict | shutdown \}}
+		\\\pause -if)\#switchport port-security
+	}
+	\\\vspace{0.1cm}\hspace{1.5cm}
+	\begin{tabular}{l*{3}c}
+		        \pause Violation	&Drop	&Log	&Error-disable
+		\\\hline\pause Protect		&Yes
+		\\      \pause Restrict		&Yes	&Yes
+		\\      \pause Shutdown*		&Yes	&Yes	&Yes
+	\end{tabular}\\
+\end{frame}
+
+\begin{frame}{Port Security (Cont.)}
+	\texttt{
+		\\\#show interface [\textit{ type number }] status
+		\\\pause Port~~~~~~Name~~~~~Status
+		\\       Fa0/1~~~~~~~~~~~~~~connected
+		\\       Fa0/2~~~~~~~~~~~~~~notconnect
+		\\       Fa0/3~~~~~~~~~~~~~~disabled
+		\\       Fa0/4~~~~~~~~~~~~~~err-disabled\vspace{0.3cm}
+		\\\pause \#show interface status err-disabled
+		\\\pause Port~~~~~~Name~~~~~Status~~~~~~~Reason
+		\\       Fa0/4~~~~~~~~~~~~~~err-disabled~psecure-violation
+	}
+	\\\vspace{0.3cm}\pause
+	To bring interface back either \texttt{shutdown/no shutdown} interface or use automatic error-disable recovery feature:
+	\pause\vspace{0.3cm}
+	\texttt{
+		\\)\#errdisable recovery cause psecure-violation
+		\\)\#errdisable recovery interval \textit{interval}
+	}\\
+\end{frame}

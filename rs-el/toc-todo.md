@@ -31,24 +31,26 @@
 	- [x] Routing
 		- [x] Static
 	- [x] Default Gateway
-- [ ] [ethr] Layer 2 (Ethernet)
-	- [ ] Cabling and connectors
-	- [ ] Duplex, collisions, speed
-	- [ ] Frame structure and size
-	- [ ] Types of addresses and communication
-		- [ ] Unicast
-		- [ ] Multicast
-		- [ ] Broadcast
-	- [ ] Ethernet Switches
-		- [ ] MAC Learning
-		- [ ] Frame Processing
-			- [ ] Flood
-			- [ ] Forward
-			- [ ] Filter
-	- [ ] Port security
-		- [ ] Types of addresses
-		- [ ] Violation
-		- [ ] Recovery
+- [x] [ethr] Layer 2 (Ethernet)
+	- [x] Cabling and connectors
+	- [x] Collisions and duplex
+	- [x] Ethernet frame structure
+	- [x] Structure and types of MAC addresses
+		- [x] Unicast
+		- [x] Multicast
+		- [x] Broadcast
+	- [x] Ethernet Switches
+		- [x] Frame Processing
+			- [x] Flood
+			- [x] Forward
+			- [x] Filter
+		- [x] MAC Learning
+		- [x] Commands
+	- [x] Port security
+		- [x] Types of addresses
+		- [x] Violation
+		- [x] Recovery
+		- [x] Commands
 - [ ] [locl] Intranet
 	- [ ] Client-Server Applications
 		- [ ] HTTP(S)
