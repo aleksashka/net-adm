@@ -23,6 +23,16 @@
 \input{../common/global.tex}
 \input{../common/begin.tex}
 \input{01_intro.tex}
+\AtBeginSection[]{
+	\begin{frame}<beamer>
+		\frametitle{Plan}
+		\tableofcontents[
+			currentsection,
+			currentsubsection,
+			subsectionstyle=show/show/hide
+		]
+	\end{frame}
+}
 \input{02_meet.tex}
 \input{03_ipv4.tex}
 \input{04_ethr.tex}

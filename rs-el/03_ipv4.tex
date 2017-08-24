@@ -1,29 +1,28 @@
 \section[ipv4]{Layer 3 (Internet Protocol)}
 
-\begin{frame}{LAYER 3 (INTERNET PROTOCOL)}
-	\begin{itemize}
-		\item IP Address and mask
-		\item Binary-Decimal-Binary conversion
-		\item Meaning of the mask
-		\item Cisco commands
-		\item Types and Classes of IP Addresses
-		\item Static IP Routing
-		\item Default Gateway
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{IP Address and mask}
+\subsection{IP, IP Address and Subnet Mask}
+\begin{frame}{IP, IP Address and Subnet Mask}
+	\wiki{Internet Protocol}{Internet_Protocol} \wiki{Address}{IPv4\#Addressing}\pause
 	\begin{itemize}[<+->]
 		\item \rfc{791}
-		\item \wiki{Internet Protocol}{Internet_Protocol}
 		\item 32-bit length (4 294 967 296 addresses)
 		\item Divided into 4 octets (bytes)
 		\item Each octet is converted from binary to decimal
 		\item \texttt{00001010 00000001 00000001 01100100}
 		\item 10.1.1.100
+		\item Identification of any host on a network
+	\end{itemize}
+	\onslide<9->
+	Mask\pause
+	\begin{itemize}[<+->]
+		\item 32-bit length
+		%\item In binary: '1' is not allowed after '0'
+		\item \texttt{11111111 11111111 11111111 00000000}
+		\item 255.255.255.0
 	\end{itemize}
 \end{frame}
 
+\subsection{Binary-Decimal-Binary conversion}
 \begin{frame}{Binary-Decimal-Binary conversion}
 	\textit{There are 10 types of people in the world. Those who understand binary and those who don't.}
 	\pause
@@ -88,6 +87,7 @@
 	}
 \end{frame}
 
+\subsection{Meaning of the Mask}
 \begin{frame}{Meaning of the Mask}
 	\texttt{
 		\onslide<3->{\\10.1.1.100 255.255.255.0}
@@ -101,11 +101,11 @@
 		\onslide<7->{\\00001010 00000001 00000001 00000001\hspace{0.5cm}First Ad.}
 		\onslide<8->{\\00001010 00000001 00000001 11111110\hspace{0.5cm}Last Address}
 		\onslide<6->{\\00001010 00000001 00000001 11111111\hspace{0.5cm}Broadcast}
-		%\vspace{0.2cm}
 		}
 	}
 \end{frame}
 
+\subsection{Cisco Commands}
 \begin{frame}{Commands: Hostname, IP Address, Save Config}
 	\texttt{
 		\only<2-3|handout:0>{\pause\\\textit{Press RETURN to get started}
@@ -129,6 +129,7 @@
 	}
 \end{frame}
 
+\subsection{Types and Classes of IP Addresses}
 \begin{frame}{Types and Classes of IP Addresses}
 	\begin{itemize}[<+->]
 		\item Localhost: Local communications only (127.0.0.0/8)
@@ -152,7 +153,8 @@
 	}
 \end{frame}
 
-\begin{frame}{Routing}
+\subsection{IP Routing}
+\begin{frame}{IP Routing}
 	\begin{itemize}[<+->]
 		\item \wiki{Packet switching}{Packet_switching}
 		\item \texttt{show ip route} (EXEC command) shows routing table
@@ -163,7 +165,7 @@
 		\begin{itemize}
 			\item Static routing (manual configuration):
 			\begin{itemize}
-				\item \texttt{ip route 192.168.1.0 255.255.255.0 10.1.1.2}
+				\item \texttt{)\#ip route 192.168.1.0 255.255.255.0 10.1.1.2}
 			\end{itemize}
 			\item Dynamic routing (automatically):
 			\begin{itemize}
@@ -176,6 +178,7 @@
 	\end{itemize}
 \end{frame}
 
+\subsection{Default Gateway}
 \begin{frame}{Default Gateway}
 	\begin{itemize}[<+->]
 		\item Communication to hosts in the same network (identical network bits) is direct
@@ -184,5 +187,10 @@
 		\item 10.1.1.100/24 $\rightarrow$ 10.1.2.200 [Direct or via DG]?
 		\item 10.1.1.100/24 $\rightarrow$ 10.2.1.200 [Direct or via DG]?
 		\item 10.1.1.100/24 $\rightarrow$ 20.1.1.200 [Direct or via DG]?
+		\item \texttt{)\#ip route 192.168.1.0 255.255.255.0 10.1.1.1}
+		\item \texttt{)\#ip route 192.168.0.0 255.255.0.0~~~10.1.1.1}
+		\item \texttt{)\#ip route 192.0.0.0~~~255.0.0.0~~~~~10.1.1.1}
+		\item \texttt{)\#ip route 0.0.0.0~~~~~0.0.0.0~~~~~~~10.1.1.1}
+		\item \texttt{)\#ip default-gateway 10.1.1.1}
 	\end{itemize}
 \end{frame}
