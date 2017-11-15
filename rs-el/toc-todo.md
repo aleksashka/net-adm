@@ -52,28 +52,29 @@
 		- [x] Recovery
 		- [x] Commands
 - [ ] [locl] Intranet
-	- [ ] Client-Server Applications
-		- [ ] HTTP(S)
-		- [ ] FTP
-		- [ ] TCP/UDP
-			- [ ] Reliability vs Real-Time issues
-				- [ ] Compare FTP and TFTP
-			- [ ] Client/Server port numbers
-	- [ ] DHCP
-		- [ ] Client
-		- [ ] Server
-		- [ ] Relay
-	- [ ] VLANs
-		- [ ] Access port
-			- [ ] Access VLAN
-			- [ ] Voice VLAN
-		- [ ] Trunk port
-			- [ ] 802.1q
-			- [ ] Native VLAN
-			- [ ] Allowed VLANs
-		- [ ] Router on a Stick
+	- [x] Client-Server Applications and Protocols
+		- [x] HTTP(S)
+		- [x] SMTP
+		- [x] Client/Server port numbers
+		- [x] TCP
+		- [x] UDP
+	- [x] DHCP
+		- [x] Client
+		- [x] Server
+		- [x] Relay
+	- [x] VLANs
+		- [x] Access port
+			- [x] Access VLAN
+			- [x] Voice VLAN
+		- [x] Trunk port
+			- [x] Compare Access and Trunk ports
+			- [x] 802.1q
+			- [x] ISL
+			- [x] Native VLAN
+			- [x] Allowed VLANs
 	- [ ] Routing
-		- [ ] Static
+		- [ ] Router on a Stick
+		- [ ] Static Routing
 			- [ ] Floating (higher AD)
 		- [ ] Dynamic
 			- [ ] RIP

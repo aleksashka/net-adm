@@ -11,6 +11,7 @@
 \usepackage{multirow} %Used for tables with merged cells
 \usepackage{collcell} %pdflatex.exe hangs without this one
 \usepackage{ulem}     %Used for \sout to strikethrough font
+%\usepackage{xcolor}   %Can be used for \colorbox{green}{highlighted text}
 %\setbeamercovered{transparent}
 %\setbeamertemplate{navigation symbols}{}
 %\logo{}
@@ -20,6 +21,7 @@
 
 \begin{document}
 
+%\includeonlyframes{current}
 \input{../common/global.tex}
 \input{../common/begin.tex}
 \input{01_intro.tex}
@@ -36,5 +38,6 @@
 \input{02_meet.tex}
 \input{03_ipv4.tex}
 \input{04_ethr.tex}
+\input{05_locl.tex}
 
 \end{document}
