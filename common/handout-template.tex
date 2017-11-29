@@ -8,7 +8,8 @@
 \documentclass[a4paper]{article}
 \usepackage{pdfpages}
 \begin{document}
-	\includepdf[pages={1,{},2,{},3-last},
+	\includepdf[%pages=-, % test handouts (for 'current' frames only)
+				pages={1,{},2,{},3-last}, % usual handout pages
 				nup=1x2,
 				landscape=false,
 				frame=true,
