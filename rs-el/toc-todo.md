@@ -73,8 +73,8 @@
 			- [x] Native VLAN
 			- [x] Allowed VLANs
 	- [ ] Routing
-		- [ ] Router on a Stick
-		- [ ] Static Routing
+		- [x] Router on a Stick
+		- [x] Static Routing
 			- [ ] Floating (higher AD)
 		- [ ] Dynamic
 			- [ ] RIP
