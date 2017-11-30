@@ -75,7 +75,7 @@
 	- [ ] Routing
 		- [x] Router on a Stick
 		- [x] Static Routing
-			- [ ] Floating (higher AD)
+			- [x] Floating (higher AD)
 		- [ ] Dynamic
 			- [ ] RIP
 - [ ] [inet] Internet
