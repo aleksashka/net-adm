@@ -9,3 +9,12 @@
 \newcommand{\rfc}[1]{\href{https://tools.ietf.org/html/rfc#1}{RFC#1}}
 
 \def\Gobble#1\EndGobble{}
+
+%https://tex.stackexchange.com/a/136166
+\tikzset{
+  invisible/.style={opacity=0},
+  visible on/.style={alt={#1{}{invisible}}},
+  alt/.code args={<#1>#2#3}{
+    \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}}
+  },
+}
