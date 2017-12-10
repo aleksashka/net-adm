@@ -269,13 +269,13 @@
 	\end{itemize}
 	\begin{center}
 		\begin{tikzpicture}[node distance=3cm]
-			\node[draw,circle] (1)              {R1};
-			\node[draw,circle] (2) [right of=1] {R2};
-			\node              (3) [right of=2] {10.0.0.0/8};
-			\path (1) edge [bend left, visible on=<2->,line width=1.5pt] (2)
-			          edge [bend left]  node[above] {172.16.0.X}         (2)
-			          edge [bend right] node[below] {172.17.0.X}         (2)
-			      (2) edge                                               (3);
+			\node[draw,circle] (r1)                {R1};
+			\node[draw,circle] (r2)  [right of=r1] {R2};
+			\node              (net) [right of=r2] {10.0.0.0/8};
+			\path (r1) edge [bend left, visible on=<2->,line width=1.5pt] (r2)
+			           edge [bend left]  node[above] {172.16.0.X}         (r2)
+			           edge [bend right] node[below] {172.17.0.X}         (r2)
+			      (r2) edge                                               (net);
 		\end{tikzpicture}
 	\end{center}
 	\texttt{)\#ip route 10.0.0.0 255.0.0.0 172.16.0.2\onslide<2->{ 10}
