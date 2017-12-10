@@ -261,7 +261,7 @@
 	}
 \end{frame}
 
-\begin{frame}[label=current]{Floating Static Route}
+\begin{frame}{Floating Static Route}
 	R1 has two paths to 10.0.0.0/8 through R2:
 	\begin{itemize}
 		\item 172.16.0.2\only<2->{ is a primary path (AD \textbf{10)}};
@@ -281,4 +281,23 @@
 	\texttt{)\#ip route 10.0.0.0 255.0.0.0 172.16.0.2\onslide<2->{ 10}
 	      \\)\#ip route 10.0.0.0 255.0.0.0 172.17.0.2\pause~20
 	}
+\end{frame}
+
+\begin{frame}[label=current]{Static vs Dynamic Routing}
+	\begin{center}
+		\begin{tikzpicture}[node distance=2cm]
+			\node[draw,circle] (r1)                            {R1};
+			\node[draw,circle] (r2)   [above=1cm, right of=r1] {R2};
+			\node[draw,circle] (r3)   [below=1cm, right of=r1] {R3};
+			\node              (net1) [left=1cm  of r1]        {192.168.1.0/24};
+			\node              (net2) [right=1cm of r2]        {192.168.2.0/24};
+			\node              (net3) [right=1cm of r3]        {192.168.3.0/24};
+			\path (r1) edge (r2);
+			\path (r1) edge (r3);
+			\path (r2) edge (r3);
+			\path (r1) edge (net1);
+			\path (r2) edge (net2);
+			\path (r3) edge (net3);
+		\end{tikzpicture}
+	\end{center}
 \end{frame}
