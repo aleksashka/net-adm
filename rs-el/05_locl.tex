@@ -285,19 +285,43 @@
 
 \begin{frame}[label=current]{Static vs Dynamic Routing}
 	\begin{center}
-		\begin{tikzpicture}[node distance=2cm]
-			\node[draw,circle] (r1)                            {R1};
-			\node[draw,circle] (r2)   [above=1cm, right of=r1] {R2};
-			\node[draw,circle] (r3)   [below=1cm, right of=r1] {R3};
-			\node              (net1) [left=1cm  of r1]        {192.168.1.0/24};
-			\node              (net2) [right=1cm of r2]        {192.168.2.0/24};
-			\node              (net3) [right=1cm of r3]        {192.168.3.0/24};
-			\path (r1) edge (r2);
-			\path (r1) edge (r3);
-			\path (r2) edge (r3);
+		\begin{tikzpicture}
+			\node[draw,circle] (r1)                                       {R1};
+			\node[draw,circle] (r2)   [above right=0.2cm and 2cm of r1]   {R2};
+			\node[draw,circle] (r3)   [below right=0.2cm and 2cm of r1]   {R3};
+			\node              (net1) [left =0.5cm of r1]                 {192.168.1.0/24};
+			\node              (net2) [right=0.5cm of r2,visible on=<2->] {192.168.2.0/24};
+			\node              (net3) [right=0.5cm of r3,visible on=<7->] {192.168.3.0/24};
+			\path (r1) edge node[above] {10.0.12.X} (r2);
+			\path (r1) edge node[below] {10.0.13.X} (r3);
+			\path (r2) edge                         (r3);
 			\path (r1) edge (net1);
 			\path (r2) edge (net2);
 			\path (r3) edge (net3);
 		\end{tikzpicture}
 	\end{center}
+	\texttt{\pause\pause R1(config)\#
+	      \pause\\ip route 192.168.2.0 255.255.255.0 10.0.12.2
+	      \pause\\ip route 192.168.2.0 255.255.255.0 10.0.13.3\pause~2\pause
+	      \pause\\ip route 192.168.3.0 255.255.255.0 10.0.13.3
+	            \\ip route 192.168.3.0 255.255.255.0 10.0.12.2 2\vspace{0.2cm}
+	      \pause\\R2(config)\# ...
+	      \pause\\R3(config)\# ...
+	}
+\end{frame}
+
+\begin{frame}[label=current]{Static vs Dynamic Routing (Cont.)}
+	\texttt{R1(config)\#        \onslide<2->{\hfill\textcolor{black!50}{Use RIP \onslide<3->{to tell everyone about}}}
+	\pause\\router rip          \onslide<3->{\hfill\textcolor{black!50}{networks on my intefaces with}}
+	\pause\\ network 10.0.0.0   \onslide<3->{\hfill\textcolor{black!50}{IP addresses in 10.0.0.0/8}}
+	\pause\\ network 192.168.1.0\onslide<4->{\hfill\textcolor{black!50}{or 192.168.1.0/24}}\vspace{0.2cm}
+	\pause\\R2(config)\#
+	      \\router rip
+	      \\ network 10.0.0.0
+	      \\ network 192.168.2.0\vspace{0.2cm}
+	\pause\\R3(config)\#
+	      \\router rip
+	      \\ network 10.0.0.0
+	      \\ network 192.168.3.0
+	}
 \end{frame}
