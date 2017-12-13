@@ -1,5 +1,6 @@
-*.*
+/*
 !.gitignore
+!/githooks/
 !*.tex
 !*.txt
 !/common/images/*.png

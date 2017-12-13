@@ -1,0 +1,38 @@
+#!/bin/sh
+# This hook checks staged contents for:
+#  - unwanted patterns (with optional grep-based check for specific files);
+#  - whitespace errors.
+
+TEST_FOR_STOP_STRING()
+{
+	STOP_STRING=$1
+	TEST_FILE=$2
+	STOP_FILES=$(git diff --cached -S${STOP_STRING} --name-only)
+	# If specific file has been passed, then limit STOP_FILES
+	if [ -n "$TEST_FILE" ]; then
+		STOP_FILES=$(echo "$STOP_FILES" | grep $TEST_FILE)
+	fi
+	if [ -n "$STOP_FILES" ]; then
+		echo "Error: The following staged file(s) contain(s) \"$STOP_STRING\""
+		echo "$STOP_FILES"
+		exit 1
+	fi
+}
+
+# Redirect output to stderr.
+exec 1>&2
+
+# Check for unwanted patterns
+TEST_FOR_STOP_STRING '[label=current]'             '-v githooks/pre-commit'
+TEST_FOR_STOP_STRING '\includeonlyframes{current}' 'main.tex'
+TEST_FOR_STOP_STRING '\includepdf[pages=-,'        'common/handout-template.tex'
+
+# Check for whitespace errors
+if git rev-parse --verify HEAD >/dev/null 2>&1
+then
+	against=HEAD
+else
+	# Initial commit: diff against an empty tree object
+	against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
+fi
+exec git diff-index --check --cached $against --
