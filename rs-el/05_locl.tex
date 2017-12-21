@@ -325,3 +325,128 @@
 	      \\ network 192.168.3.0
 	}
 \end{frame}
+
+\begin{frame}{Routing Information Protocol (RIP)}
+	\begin{itemize}[<+->]
+		\item RIP v1 (\rfc{1058}):
+		\begin{itemize}[<+->]
+			\item Select interfaces to:
+			\begin{itemize}[<+->]
+				\item Add to RIP database
+				\item Send updates from
+			\end{itemize}
+			\item Broadcast (255.255.255.255) updates every 30$\pm$5
+			\item Use hops as metric (lower is better, max 15)
+			\item Summarize at network boundaries
+		\end{itemize}
+		\vspace{0.2cm}
+		\item RIP v2 (\rfc{2453}) differences:
+		\begin{itemize}[<+->]
+			\item Multicast (224.0.0.9) instead of broadcast
+			\item Add VLSM support
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{RIP Route Entry Format}
+	\begin{center}
+		\tiny{RIPv1\\
+			\texttt{~0~~~~~~~~~~~~~~~~~~~1~~~~~~~~~~~~~~~~~~~2~~~~~~~~~~~~~~~~~~~3~~~~
+				  \\~0~1~2~3~4~5~6~7~8~9~0~1~2~3~4~5~6~7~8~9~0~1~2~3~4~5~6~7~8~9~0~1~~
+				  \\+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+				  \\|~address~family~identifier~(2)~|~~~~~~must~be~zero~(2)~~~~~~~~~|
+				  \\+-------------------------------+-------------------------------+
+				  \\|~~~~~~~~~~~~~~~~~~~~~~~~IPv4~address~(4)~~~~~~~~~~~~~~~~~~~~~~~|
+				  \\+---------------------------------------------------------------+
+				  \\|~~~~~~~~~~~~~~~~~~~~~~~~must~be~zero~(4)~~~~~~~~~~~~~~~~~~~~~~~|
+				  \\+---------------------------------------------------------------+
+				  \\|~~~~~~~~~~~~~~~~~~~~~~~~must~be~zero~(4)~~~~~~~~~~~~~~~~~~~~~~~|
+				  \\+---------------------------------------------------------------+
+				  \\|~~~~~~~~~~~~~~~~~~~~~~~~~~~metric~(4)~~~~~~~~~~~~~~~~~~~~~~~~~~|
+				  \\+---------------------------------------------------------------+}
+			\\\vspace{0.3cm}
+			RIPv2\\
+			\texttt{~0~~~~~~~~~~~~~~~~~~~1~~~~~~~~~~~~~~~~~~~2~~~~~~~~~~~~~~~~~~~3~~~~
+				  \\~0~1~2~3~4~5~6~7~8~9~0~1~2~3~4~5~6~7~8~9~0~1~2~3~4~5~6~7~8~9~0~1~~
+				  \\+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+				  \\|~Address~Family~Identifier~(2)~|~~~~~~~~Route~Tag~(2)~~~~~~~~~~|
+				  \\+-------------------------------+-------------------------------+
+				  \\|~~~~~~~~~~~~~~~~~~~~~~~~~IP~Address~(4)~~~~~~~~~~~~~~~~~~~~~~~~|
+				  \\+---------------------------------------------------------------+
+				  \\|~~~~~~~~~~~~~~~~~~~~~~~~~Subnet~Mask~(4)~~~~~~~~~~~~~~~~~~~~~~~|
+				  \\+---------------------------------------------------------------+
+				  \\|~~~~~~~~~~~~~~~~~~~~~~~~~Next~Hop~(4)~~~~~~~~~~~~~~~~~~~~~~~~~~|
+				  \\+---------------------------------------------------------------+
+				  \\|~~~~~~~~~~~~~~~~~~~~~~~~~Metric~(4)~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+				  \\+---------------------------------------------------------------+}
+		}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Network Statement}
+	\texttt{Interface~~~IP-Address~~~~Status~~~~~~~Protocol
+		  \\Gi0/0~~~~~~~10.0.0.1~~~~~~up~~~~~~~~~~~up
+		  \\Gi0/1~~~~~~~10.20.0.1~~~~~up~~~~~~~~~~~up
+		  \\Gi0/2~~~~~~~172.0.0.1~~~~~up~~~~~~~~~~~up
+		  \\Gi0/3~~~~~~~172.16.0.1~~~~up~~~~~~~~~~~up
+		  \\Gi0/4~~~~~~~172.16.20.1~~~up~~~~~~~~~~~up
+		  \\Gi0/5~~~~~~~192.168.0.1~~~up~~~~~~~~~~~up
+		  \\Gi0/6~~~~~~~192.168.20.1~~up~~~~~~~~~~~up
+		  \vspace{0.3cm}
+		  \\router rip
+		  \pause\\~network 10.0.0.0		\pause\hfill\textcolor<4->{black!50}{Gi0/0, Gi0/1}
+		  \pause\\~network 172.0.0.0	\pause\hfill\textcolor<6->{black!50}{Gi0/2}
+		  \pause\\~network 172.16.0.0	\pause\hfill\textcolor<8->{black!50}{Gi0/3, Gi0/4}
+		  \pause\\~network 192.168.0.0	\pause\hfill\textcolor<10->{black!50}{Gi0/5}
+		  \pause\\~network 192.168.20.0	\pause\hfill\textcolor<12->{black!50}{Gi0/6}}
+\end{frame}
+
+\begin{frame}{Automatic Summarization}
+	\begin{tikzpicture}
+		\node[draw,circle]  (r1)                                        {R1};
+		\node               (n12) [right =0.1cm of r1]                  {172.16.12.0/24};
+		\node[draw,circle]  (r2)  [right =0.1cm of n12]                 {R2};
+		\node               (n23) [right =0.1cm of r2]                  {10.0.23.0/24};
+		\node[draw,circle]  (r3)  [right =0.1cm of n23]                 {R3};
+		\node               (n3)  [right =0.1cm of r3]                  {10.0.3.0/24};
+		\onslide<2->{\node  (u32) [above left  =0.2cm and -0.8cm of r3] {$\leftarrow$ \only<4->{10.0.3.0/24}};}
+		\onslide<5->{\node  (u21) [above left  =0.2cm and -0.8cm of r2] {$\leftarrow$ \only<10->{10.0.0.0/8}};}
+		\onslide<11->{\node (u12) [below right =0.2cm and -0.8cm of r1] {172.16.1.0/24 $\rightarrow$};}
+		\onslide<12->{\node (u23) [below right =0.2cm and -0.8cm of r2] {\only<13->{172.16.0.0/16} $\rightarrow$};}
+	\end{tikzpicture}\vspace{0.2cm}
+	\pause\pause Automatic summarization does not happen when updates are sent within a single network\\\vspace{0.2cm}
+	\pause\pause\pause If updates about subnets from a single network (10.X.X.X) \pause are sent from an interface in this network (10.0.23.0/24) \pause to an interface from another network (172.16.12.0/24)\pause, then router automatically summarizes subnet routes to the classfull network (10.0.0.0/8)\\\vspace{0.2cm}
+	\onslide<14->Can be disabled by \texttt{no auto-summary} command
+\end{frame}
+
+\begin{frame}{Configuring RIP}
+	\texttt{router rip
+		  \\~version 2
+		  \\~no auto-summary
+		  \\~network 10.0.0.0
+		  \\~network 192.168.1.0
+		  \vspace{0.3cm}
+	\pause\\\#show ip rip database
+		  \\192.168.1.0/24~~~~directly connected, Gi0/0
+		  \\192.168.2.0/24
+		  \\~~~~[1] via 10.0.12.2, 00:00:12, Gi0/2
+		  \\192.168.3.0/24
+		  \\~~~~[1] via 10.0.13.3, 00:00:28, Gi0/3
+		  \vspace{0.3cm}
+	\pause\\\#show ip route rip
+		  \\R~~192.168.2.0/24 [120/1] via 10.0.12.2, Gi0/2
+		  \\R~~192.168.3.0/24 [120/1] via 10.0.13.3, Gi0/3}
+\end{frame}
+
+\begin{frame}{RIP Timers}
+	\texttt{router rip
+		\\~timers basic 30 180 180 240
+		\\~timers basic \textit{update invalid holddown flush}
+	}\pause
+	\begin{itemize}[<+->]
+		\item Updates are sent every \textit{update} interval
+		\item If no updates were received during \textit{invalid} interval, then route is marked as invalid and \textit{holddown} timer is started
+		\item \textit{Holddown} timer - how long not to believe better updates
+		\item \textit{Flush} timer - how long since last update before removing route completely
+	\end{itemize}
+\end{frame}
