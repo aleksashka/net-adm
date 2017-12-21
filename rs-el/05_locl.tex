@@ -290,8 +290,8 @@
 			\node[draw,circle] (r2)   [above right=0.2cm and 2cm of r1]   {R2};
 			\node[draw,circle] (r3)   [below right=0.2cm and 2cm of r1]   {R3};
 			\node              (net1) [left =0.5cm of r1]                 {192.168.1.0/24};
-			\node              (net2) [right=0.5cm of r2,visible on=<2->] {192.168.2.0/24};
-			\node              (net3) [right=0.5cm of r3,visible on=<7->] {192.168.3.0/24};
+			\node              (net2) [right=0.5cm of r2,visible on=<3->] {192.168.2.0/24};
+			\node              (net3) [right=0.5cm of r3,visible on=<8->] {192.168.3.0/24};
 			\path (r1) edge node[above] {10.0.12.X} (r2);
 			\path (r1) edge node[below] {10.0.13.X} (r3);
 			\path (r2) edge                         (r3);
@@ -300,9 +300,9 @@
 			\path (r3) edge (net3);
 		\end{tikzpicture}
 	\end{center}
-	\texttt{\pause\pause R1(config)\#
-	      \pause\\ip route 192.168.2.0 255.255.255.0 10.0.12.2
-	      \pause\\ip route 192.168.2.0 255.255.255.0 10.0.13.3\pause~2\pause
+	\texttt{\pause R1(config)\#\pause
+	      \pause\\ip route 192.168.2.0 255.255.255.0 10.0.12.2\onslide<7->{\textcolor{black!50}{~1}}
+	      \pause\\ip route 192.168.2.0 255.255.255.0 10.0.13.3\pause~2\pause\pause
 	      \pause\\ip route 192.168.3.0 255.255.255.0 10.0.13.3
 	            \\ip route 192.168.3.0 255.255.255.0 10.0.12.2 2\vspace{0.2cm}
 	      \pause\\R2(config)\# ...
