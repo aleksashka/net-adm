@@ -13,6 +13,7 @@
 \usepackage{multirow} %Used for tables with merged cells
 \usepackage{collcell} %pdflatex.exe hangs without this one
 \usepackage{ulem}     %Used for \sout to strikethrough font
+\usepackage{setspace} %Used to decrease line spacing in TOC
 %\usepackage{xcolor}   %Can be used for \colorbox{green}{highlighted text}
 %\setbeamercovered{transparent}
 %\setbeamertemplate{navigation symbols}{}
@@ -30,8 +31,7 @@
 	\begin{frame}<beamer>
 		\frametitle{Plan}
 		\tableofcontents[
-			currentsection,
-			currentsubsection,
+			sectionstyle=show/hide,
 			subsectionstyle=show/show/hide
 		]
 	\end{frame}
