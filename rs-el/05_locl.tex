@@ -130,9 +130,9 @@
 		      \\3~~~~VLAN0003~~~active~~~~Fa0/3
 		\vspace{0.5cm}
 		\pause\\\#show interface status
-		\pause\\Port~~~~~~Name~~~~~~Status~~~~~~~~~~~Vlan 
-	          \\Fa0/1~~~~~~~~~~~~~~~connected~~~~~~~~1    
-	          \\Fa0/2~~~~~~~~~~~~~~~connected~~~~~~~~1    
+		\pause\\Port~~~~~~Name~~~~~~Status~~~~~~~~~~~Vlan
+	          \\Fa0/1~~~~~~~~~~~~~~~connected~~~~~~~~1
+	          \\Fa0/2~~~~~~~~~~~~~~~connected~~~~~~~~1
 	          \\Fa0/3~~~~~~~~~~~~~~~connected~~~~~~~~3
 	          \\Fa0/4~~~~~~~~~~~~~~~connected~~~~~~~~1
 	}
@@ -141,14 +141,14 @@
 \begin{frame}{Access Ports and Trunks}
 	\texttt{\framebox[1.1\width]{~frame1~}~~
 			\framebox[1.1\width]{~frame2~}~~
-			\framebox[1.1\width]{~frame3~} 
+			\framebox[1.1\width]{~frame3~}
 			\newline \pause
 			\newline                     Fa0/1(1)~~~~Fa0/2(2)~~~~Fa0/3(3)~
 			\newline\framebox[1.1\width]{~~~~~~~~~~~Switch~1~~~~~~~~~~~}\pause
 			\newline\phantom{            ~~~~~~~~~~~~}Fa0/4(T)\newline\pause
 			\newline\phantom{~~~~~~~}\framebox[1.1\width]{~frame1~\only<-7|handout:0>{|~VLAN~1~}}\only<8>{\hfill Native VLAN (802.1Q)}
 			\newline\phantom{~~~~~~~}\framebox[1.1\width]{~frame2~|~VLAN~2~}
-			\newline\phantom{~~~~~~~}\framebox[1.1\width]{~frame3~|~VLAN~3~} 
+			\newline\phantom{~~~~~~~}\framebox[1.1\width]{~frame3~|~VLAN~3~}
 			\newline\pause
 			\newline\phantom{~~~~~~~~~~~~~}Fa0/4(T)
 			\newline\framebox[1.1\width]{~~~~~~~~~~~Switch~2~~~~~~~~~~~}\pause
@@ -156,7 +156,7 @@
 			\newline\pause
 			\framebox[1.1\width]{~frame1~}~~
 			\framebox[1.1\width]{~frame2~}~~
-			\framebox[1.1\width]{~frame3~} 
+			\framebox[1.1\width]{~frame3~}
 	}
 \end{frame}
 
@@ -242,7 +242,7 @@
 	}
 \end{frame}
 
-\begin{frame}{Router on a Stick (cont.)}
+\begin{frame}{Router on a Stick (Cont.)}
 	\texttt{)\#interface GigabitEthernet0/1
 		      \\-if)\#no ip address
 		      \\-if)\#interface GigabitEthernet0/1.1
