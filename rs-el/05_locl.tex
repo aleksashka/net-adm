@@ -313,16 +313,16 @@
 \begin{frame}{Static vs Dynamic Routing (Cont.)}
 	\texttt{R1(config)\#        \onslide<2->{\hfill\textcolor{black!50}{Use RIP \onslide<3->{to tell everyone about}}}
 	\pause\\router rip          \onslide<3->{\hfill\textcolor{black!50}{networks on my intefaces with}}
-	\pause\\ network 10.0.0.0   \onslide<3->{\hfill\textcolor{black!50}{IP addresses in 10.0.0.0/8}}
-	\pause\\ network 192.168.1.0\onslide<4->{\hfill\textcolor{black!50}{or 192.168.1.0/24}}\vspace{0.2cm}
+	\pause\\~network 10.0.0.0   \onslide<3->{\hfill\textcolor{black!50}{IP addresses in 10.0.0.0/8}}
+	\pause\\~network 192.168.1.0\onslide<4->{\hfill\textcolor{black!50}{or 192.168.1.0/24}}\vspace{0.2cm}
 	\pause\\R2(config)\#
 	      \\router rip
-	      \\ network 10.0.0.0
-	      \\ network 192.168.2.0\vspace{0.2cm}
+	      \\~network 10.0.0.0
+	      \\~network 192.168.2.0\vspace{0.2cm}
 	\pause\\R3(config)\#
 	      \\router rip
-	      \\ network 10.0.0.0
-	      \\ network 192.168.3.0
+	      \\~network 10.0.0.0
+	      \\~network 192.168.3.0
 	}
 \end{frame}
 
@@ -445,8 +445,8 @@
 	}\pause
 	\begin{itemize}[<+->]
 		\item Updates are sent every \textit{update} interval
-		\item If no updates were received during \textit{invalid} interval, then route is marked as invalid and \textit{holddown} timer is started
+		\item If no updates were received during \textit{invalid} interval (``timeout`` per RFC), then route is marked as invalid and \textit{holddown} timer is started
 		\item \textit{Holddown} timer - how long not to believe better updates
-		\item \textit{Flush} timer - how long since last update before removing route completely
+		\item \textit{Flush} timer (``garbage-collection`` per RFC) - how long since the last update before removing the route completely
 	\end{itemize}
 \end{frame}
