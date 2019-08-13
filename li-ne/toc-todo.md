@@ -1,0 +1,67 @@
+## ToC
+- [ ] Setting up environment
+    - [ ] VirtualBox
+        - [ ] Using snapshots
+    - [ ] Installing CentOS
+    - [ ] Installing and configuring PuTTY
+- [ ] Introduction to Linux
+    - [ ] Access
+        - [ ] Console access
+        - [ ] Remote access
+        - [ ] Bash shell intro
+    - [ ] YUM
+        - [ ] Installing additional packages
+    - [ ] Users and groups
+    - [ ] File permissions (turning selinux off)
+- [ ] More about Linux
+    - [ ] Filesystem
+        - [ ] Hierarchy
+        - [ ] Searching files
+            - [ ] find
+            - [ ] locate
+        - [ ] Managing files/directories
+        - [ ] Path name expansion
+    - [ ] Vim editor
+    - [ ] Bash scripting
+        - [ ] Cron
+    - [ ] Git basics
+- [ ] Network administration
+    - [ ] Setting IP Address
+    - [ ] HTTP Server
+        - [ ] Let's Encrypt certificates
+    - [ ] DNS Server Configuration
+        - [ ] Recursive
+        - [ ] Forwarding
+        - [ ] Authoritative
+        - [ ] Master/Slave
+    - [ ] Cacti
+        - [ ] SNMP
+            - [ ] Versions
+            - [ ] Using snmp-walk, snmp-get
+            - [ ] Adding MIB files
+        - [ ] Adding
+            - [ ] Devices
+            - [ ] Graphs
+        - [ ] Plugins
+            - [ ] Thold
+            - [ ] Nectar
+            - [ ] Syslog
+            - [ ] Smokeping?
+            - [ ] Weathermap?
+        - [ ] Email
+        - [ ] Remote data collection?
+    - [ ] nfsen
+        - [ ] Autostart
+    - [ ] RANCID
+        - [ ] Web-interface
+    - [ ] TACACS+
+
+## Unsorted
+- [ ] at command
+- [ ] Systemd (enable/disable, start/stop)
+- [ ] tcpdump (with Wireshark?)
+- [ ] man command
+- [ ] repo-files, &cc=kz
+
+## Time-permitting
+- [ ] OpenVPN
