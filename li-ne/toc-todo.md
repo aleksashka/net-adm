@@ -1,9 +1,9 @@
 ## ToC
-- [ ] Setting up environment
-    - [ ] VirtualBox
-        - [ ] Using snapshots
-    - [ ] Installing CentOS
-    - [ ] Installing and configuring PuTTY
+- [x] Setting up environment
+    - [x] VirtualBox
+        - [x] Using snapshots
+    - [x] Installing CentOS
+    - [x] Installing and configuring PuTTY
 - [ ] Introduction to Linux
     - [ ] Access
         - [ ] Console access
