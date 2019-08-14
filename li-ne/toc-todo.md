@@ -5,15 +5,12 @@
     - [x] Installing CentOS
     - [x] Installing and configuring PuTTY
 - [ ] Introduction to Linux
-    - [ ] Access
-        - [ ] Console access
-        - [ ] Remote access
-        - [ ] Bash shell intro
-    - [ ] YUM
-        - [ ] Installing additional packages
-    - [ ] Users and groups
-    - [ ] File permissions (turning selinux off)
-- [ ] More about Linux
+    - [x] Access
+        - [x] Console access
+        - [x] Remote access
+        - [x] Bash shell
+        - [x] Bash commands and features
+    - [x] yum install
     - [ ] Filesystem
         - [ ] Hierarchy
         - [ ] Searching files
@@ -24,6 +21,8 @@
     - [ ] Vim editor
     - [ ] Bash scripting
         - [ ] Cron
+    - [ ] Users and groups
+    - [ ] File permissions (turning selinux off)
     - [ ] Git basics
 - [ ] Network administration
     - [ ] Setting IP Address
@@ -62,6 +61,10 @@
 - [ ] tcpdump (with Wireshark?)
 - [ ] man command
 - [ ] repo-files, &cc=kz
+- [ ] WinSCP
+
+## ToDo
+- [ ] Make inline code more noticeable (grey background?)
 
 ## Time-permitting
 - [ ] OpenVPN
