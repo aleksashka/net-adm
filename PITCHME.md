@@ -141,3 +141,114 @@ Command-line package-management utility
     - `yum install traceroute`
 - `yum install -y bash-completion vim wget mc tree man`
 @ulend
+
+---
+
+## Filesystem
+
++++
+
+### Filesystem Intro
+
+@ul[](false)
+- [Filesystem Hierarchy Standard](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard)
+- Absolute path
+    - `cd /home/username/dir1`
+    - `ls /etc/sysconfig/network-scripts/`
+- Relative path
+    - `cd dir1/`
+    - `ls network-scripts`
+- Navigation
+    - `cd ..; cd -; pushd/popd/dirs`
+@ulend
+
++++
+
+### Searching files
+
+@ul[](false)
+- find
+    - `find [path...] [expression]`
+    - `find /etc/sysconfig/ -type d`
+    - `find /etc/sysconfig/ -not -type f`
+    - `find / -name '\*ifup\*'`
+- locate
+    - `yum install mlocate`
+    - `updatedb`
+    - `locate ifup`
+@ulend
+
++++
+
+### Managing files and directories
+
+@ul[](false)
+- `touch file1.txt file2.txt file3.txt`
+- `mkdir files backup tempdir`
+- `mv file1.txt file2.txt file3.txt files`
+- `cp files/file1.txt files/file2.txt files/file3.txt backup`
+- `cd files; cp file1.txt file2.txt file3.txt ../backup`
+- `rmdir files backup tempdir`
+- `cd ..; rmdir files backup tempdir`
+- `rm -r files backup`
+@ulend
+
+---
+
+## Bash intro
+
++++
+
+### [Filename expansion](https://www.gnu.org/software/bash/manual/html_node/Filename-Expansion.html)
+
+```text
+touch zero one two three four five six seven
+touch eight nine ten10 eleven11 twelve12
+ls t*; ls n*; ls *n*; ls *n
+ls ???; ls ????; ls ????*
+ls [st]???*
+ls *[[:digit:]]*
+```
+@[1-2]
+@[1-3]
+@[1-4]
+@[1-5]
+@[1-6]
+
++++
+
+### [Brace expansion](https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html)
+
+```text
+touch file{1,2,3,4,5,6,7,8,9}.txt
+touch file{1..30}.txt
+touch file{01..30}.txt
+touch y{2019..2020}-m{01..12}.txt
+```
+@[1]
+@[1-2]
+@[1-3]
+@[1-4]
+
++++
+
+### [Command substitution](http://gnu.org/software/bash/manual/html_node/Command-Substitution.html)
+
+```text
+echo It is `date` now
+echo It is $(date) now
+TMPVAR=something
+echo TMPVAR = $TMPVAR
+echo TMPVAR =     $TMPVAR
+echo "TMPVAR =     $TMPVAR"
+echo "\$TMPVAR = $TMPVAR"
+echo '\$TMPVAR = $TMPVAR'
+```
+@[1]
+@[1-2]
+@[1-3]
+@[1-4]
+@[1-5]
+@[1-6]
+@[1-7]
+@[1-8]

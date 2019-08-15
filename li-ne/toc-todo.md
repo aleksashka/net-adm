@@ -8,16 +8,19 @@
     - [x] Access
         - [x] Console access
         - [x] Remote access
-        - [x] Bash shell
+        - [x] Bash shell intro
         - [x] Bash commands and features
-    - [x] yum install
-    - [ ] Filesystem
-        - [ ] Hierarchy
-        - [ ] Searching files
-            - [ ] find
-            - [ ] locate
-        - [ ] Managing files/directories
-        - [ ] Path name expansion
+        - [x] yum install
+    - [x] Filesystem
+        - [x] Hierarchy
+        - [x] Searching files
+            - [x] find
+            - [x] locate
+        - [x] Managing files/directories
+    - [x] Bash
+        - [x] Filename expansion
+        - [x] Brace expansion
+        - [x] Command substitution
     - [ ] Vim editor
     - [ ] Bash scripting
         - [ ] Cron
