@@ -283,3 +283,22 @@ echo '\$TMPVAR = $TMPVAR'
 @[1-6]
 @[1-7]
 @[1-8]
+
++++
+
+### Pipelines
+
+```text
+ls /usr/bin
+ls /usr/bin | less
+ls /usr/bin | wc -l
+ls -1 /usr/bin | head -n 10
+ls -1 /usr/bin > files.txt
+ls -1 /usr/share > files.txt
+ls -1 /usr/share >> files.txt
+find /etc -name 'ifcfg*' > files.txt
+find /etc -name 'ifcfg*' > files.txt 2> /dev/null
+find /etc -name 'ifcfg*' > files.txt 2>&1
+cat files.txt | grep 'ifcfg' | wc -l
+cat files.txt | grep 'ifcfg' | tee $(tty) | wc -l
+```

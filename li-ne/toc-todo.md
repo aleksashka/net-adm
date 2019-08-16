@@ -22,6 +22,7 @@
         - [x] Filename expansion
         - [x] Brace expansion
         - [x] Command substitution
+        - [x] Pipelines
     - [ ] Vim editor
     - [ ] Bash scripting
         - [ ] Cron
