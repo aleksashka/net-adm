@@ -16,7 +16,8 @@
         - [x] Searching files
             - [x] find
             - [x] locate
-        - [x] Managing files/directories
+        - [x] Viewing files
+        - [x] Managing files
     - [x] Bash
         - [x] Filename expansion
         - [x] Brace expansion

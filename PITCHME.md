@@ -180,18 +180,49 @@ Command-line package-management utility
 
 +++
 
-### Managing files and directories
+### Viewing files
 
-@ul[](false)
-- `touch file1.txt file2.txt file3.txt`
-- `mkdir files backup tempdir`
-- `mv file1.txt file2.txt file3.txt files`
-- `cp files/file1.txt files/file2.txt files/file3.txt backup`
-- `cd files; cp file1.txt file2.txt file3.txt ../backup`
-- `rmdir files backup tempdir`
-- `cd ..; rmdir files backup tempdir`
-- `rm -r files backup`
-@ulend
+```text
+cat /etc/os-release
+cat /etc/services
+wc -l /etc/services
+less /etc/services
+grep 53/udp /etc/services
+grep ' 53/udp' /etc/services
+```
+@[1]
+@[1-2]
+@[1-3]
+@[1-4]
+@[1-5]
+@[1-6]
+
++++
+
+### Managing files
+
+```text
+touch file1.txt file2.txt file3.txt
+mkdir files backup tempdir
+mv file1.txt file2.txt file3.txt files
+cp files/file1.txt files/file2.txt files/file3.txt backup
+cd files
+cp file1.txt file2.txt file3.txt ../backup
+rmdir files backup tempdir
+cd ..
+rmdir files backup tempdir
+rm -r files backup
+```
+@[1]
+@[1-2]
+@[1-3]
+@[1-4]
+@[1-5]
+@[1-6]
+@[1-7]
+@[1-8]
+@[1-9]
+@[1-10]
 
 ---
 
