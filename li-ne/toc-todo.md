@@ -70,5 +70,6 @@
 ## ToDo
 - [ ] Make inline code more noticeable (grey background?)
 
-## Time-permitting
+## Time-permitting?
 - [ ] OpenVPN
+- [ ] fail2ban
