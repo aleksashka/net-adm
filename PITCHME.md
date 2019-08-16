@@ -112,8 +112,8 @@ Bash (Bourne-Again SHell) - shell, or command language interpreter
 - Semicolon (;)
 - Tab-completion
 - Shortcuts
-    - Ctrl+{a,e,u,k,p,n,r}
-    - Esc+{.,b,f}
+    - Ctrl+{f,b,e,a,w,u,k,y,p,n,r}
+    - Esc+{f,b,.}
 @ulend
 @snapend
 
@@ -235,8 +235,13 @@ rm -r files backup
 ```text
 touch zero one two three four five six seven
 touch eight nine ten10 eleven11 twelve12
-ls t*; ls n*; ls *n*; ls *n
-ls ???; ls ????; ls ????*
+ls t*
+ls n*
+ls *n*
+ls *n
+ls ???
+ls ????
+ls ????*
 ls [st]???*
 ls *[[:digit:]]*
 ```
@@ -245,6 +250,11 @@ ls *[[:digit:]]*
 @[1-4]
 @[1-5]
 @[1-6]
+@[1-7]
+@[1-8]
+@[1-9]
+@[1-10]
+@[1-11]
 
 +++
 
