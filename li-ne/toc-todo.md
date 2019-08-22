@@ -23,12 +23,13 @@
         - [x] Brace expansion
         - [x] Command substitution
         - [x] Pipelines
-    - [ ] Vim editor
-    - [ ] Bash scripting
-        - [ ] Cron
-    - [ ] Users and groups
-    - [ ] File permissions (turning selinux off)
-    - [ ] Git basics
+    - [ ] Features and security
+        - [x] Vim editor
+        - [ ] Users and groups
+        - [ ] File permissions (turning selinux off)
+        - [ ] Bash scripting
+            - [ ] Cron
+        - [ ] Git basics
 - [ ] Network administration
     - [ ] Setting IP Address
     - [ ] HTTP Server

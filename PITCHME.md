@@ -312,3 +312,87 @@ find /etc -name 'ifcfg*' > files.txt 2>&1
 cat files.txt | grep 'ifcfg' | wc -l
 cat files.txt | grep 'ifcfg' | tee $(tty) | wc -l
 ```
+
+---
+
+## Features and security
+
++++
+
+### Vim editor
+
+```text
+vimtutor [lang]
+Modes: normal, insert, visual, command
+Quitting Vim (:q, :wq, :q!, :qa)
+Navigation (h, j, k, l, :[num], [num]%)
+Editing characters, words, lines (y, d, p, <, >)
+Using tabs (:tabedit [filename], gt, gT,:qa)
+
+background, number, relativenumber, autoindent,
+expandtab, tabstop, softtabstop, shiftwidth
+```
+
++++
+
+### Users and groups
+
+```text
+Switching users (su USER vs su - USER)
+
+# ls -l /home/alex/
+drwxrwxr-x. 3 alex alex 21 Aug 14 09:48 github
+
+chown OWNER[:GROUP] FILE...
+
+TODO
+```
+
+Note:
+su [-]: id, pwd, $PATH
+
++++
+
+### Creating users and groups
+```text
+useradd
+```
+
++++
+
+### File permissions
+
+```text
+rwxrwxrwx
+Read, write, and execute bits
+User, group, and others
+uuugggooo
+
+chmod MODE[,MODE] FILE...
+
+TODO
+```
+
+Note: Prepare easy to grasp examples
+
++++
+
+### Bash scripting
+
+```text
+echo 'touch f01.txt' > my-script.sh
+bash my-script.sh
+
+echo '#!/usr/bin/env bash' >  my-script.sh
+echo 'touch f01.txt'       >> my-script.sh
+chmod +x my-script.sh
+./my-script.sh
+```
+
++++
+
+### Running scripts automatically
+
+Cron format
+/etc/crontab
+/etc/cron.d/
