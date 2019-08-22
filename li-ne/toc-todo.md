@@ -23,7 +23,7 @@
         - [x] Brace expansion
         - [x] Command substitution
         - [x] Pipelines
-    - [ ] Features and security
+    - [ ] Vim, Git, and permissions
         - [x] Vim editor
         - [ ] Users and groups
         - [ ] File permissions (turning selinux off)

@@ -315,7 +315,7 @@ cat files.txt | grep 'ifcfg' | tee $(tty) | wc -l
 
 ---
 
-## Features and security
+## Vim, Git, and permissions
 
 +++
 
@@ -393,6 +393,7 @@ chmod +x my-script.sh
 
 ### Running scripts automatically
 
-Cron format
+```text
 /etc/crontab
 /etc/cron.d/
+```
