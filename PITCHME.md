@@ -139,7 +139,7 @@ Command-line package-management utility
 - During the course we will need some additional packages
 - Use `yum install packagename` to install packagename
     - `yum install traceroute`
-- `yum install -y bash-completion vim wget mc tree man`
+- `yum install -y bash-completion vim wget mc tree man-pages`
 @ulend
 
 ---
@@ -315,7 +315,7 @@ cat files.txt | grep 'ifcfg' | tee $(tty) | wc -l
 
 ---
 
-## Vim, Git, and permissions
+## Vim, Git, Bash, and permissions
 
 +++
 
@@ -325,7 +325,7 @@ cat files.txt | grep 'ifcfg' | tee $(tty) | wc -l
 vimtutor [lang]
 Modes: normal, insert, visual, command
 Quitting Vim (:q, :wq, :q!, :qa)
-Navigation (h, j, k, l, :[num], [num]%)
+Navigation (h, j, k, l, :[num])
 Editing characters, words, lines (y, d, p, <, >)
 Using tabs (:tabedit [filename], gt, gT,:qa)
 
@@ -338,42 +338,59 @@ expandtab, tabstop, softtabstop, shiftwidth
 ### Users and groups
 
 ```text
-Switching users (su USER vs su - USER)
-
+id
+/etc/passwd; /etc/group
+Switching users (su vs su -)
+Superuser access (sudo)
 # ls -l /home/alex/
-drwxrwxr-x. 3 alex alex 21 Aug 14 09:48 github
-
+drwxrwxr-x. 3 alex alex   21 Aug 14 09:48 github
+-rw-rw-r--. 1 alex alex 1970 Aug 22 17:46 filename.txt
 chown OWNER[:GROUP] FILE...
-
-TODO
+TODO: who can chown? root only
+practice
 ```
 
 Note:
-su [-]: id, pwd, $PATH
+man 5 passwd
+
+man 5 group
+
+primary group, secondary groups
+
+su [-]: id, pwd, $PATH, $HOME
+
+sudo command logs to /var/log/secure
 
 +++
 
-### Creating users and groups
+### Managing users and groups
 ```text
 useradd
+usermod
+userdel
+groupadd
+groupmod
+groupdel
+
+TODO: Demo
 ```
 
 +++
 
-### File permissions
+### File permissions, selinux
 
 ```text
 rwxrwxrwx
 Read, write, and execute bits
 User, group, and others
 uuugggooo
-
 chmod MODE[,MODE] FILE...
 
-TODO
+getenforce
+setenforce [Enforcing|Permissive|1|0]
+/etc/selinux/config
+TODO: Prepare easy to grasp examples
 ```
-
-Note: Prepare easy to grasp examples
 
 +++
 
@@ -394,6 +411,23 @@ chmod +x my-script.sh
 ### Running scripts automatically
 
 ```text
+man 5 crontab
 /etc/crontab
 /etc/cron.d/
+```
+
+Note:
+Initially crontab, then cron.d directory
+
++++
+
+### Git basics
+
+```text
+git init
+git status
+git add
+git commit
+git log
+git diff
 ```
