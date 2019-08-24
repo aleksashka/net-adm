@@ -50,9 +50,8 @@
 @ulend
 
 ---
-@title[Intro]
 
-# Introduction to Linux
+# Introduction to GNU/Linux
 
 ---
 
@@ -80,7 +79,7 @@ Password: PASSWORD
 
 @ul[](false)
 - Run SSH-client (e.g. PuTTY)
-- Enter IP address or hostname of linux machine
+- Enter IP address or hostname of the VM
 - On connect enter `username` and `password`
 @ulend
 
@@ -235,10 +234,8 @@ rm -r files backup
 ```text
 touch zero one two three four five six seven
 touch eight nine ten10 eleven11 twelve12
-ls t*
-ls n*
-ls *n*
-ls *n
+ls t*                ls n*
+ls *n*               ls *n
 ls ???
 ls ????
 ls ????*
@@ -315,7 +312,7 @@ cat files.txt | grep 'ifcfg' | tee $(tty) | wc -l
 
 ---
 
-## Vim, Git, Bash, and permissions
+## Vim, users, and permissions
 
 +++
 
@@ -392,6 +389,10 @@ setenforce [Enforcing|Permissive|1|0]
 TODO: Prepare easy to grasp examples
 ```
 
+---
+
+## Bash and Git
+
 +++
 
 ### Bash scripting
@@ -414,6 +415,10 @@ chmod +x my-script.sh
 man 5 crontab
 /etc/crontab
 /etc/cron.d/
+cat > /etc/cron.d/log-date-every-minute <<EOF
+* * * * * root /bin/date >> /tmp/ldem.log
+EOF
+tail -f /tmp/ldem.log
 ```
 
 Note:
@@ -424,6 +429,8 @@ Initially crontab, then cron.d directory
 ### Git basics
 
 ```text
+yum install https://centos7.iuscommunity.org/ius-release.rpm
+yum install git2u
 git init
 git status
 git add

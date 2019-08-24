@@ -4,7 +4,7 @@
         - [x] Using snapshots
     - [x] Installing CentOS
     - [x] Installing and configuring PuTTY
-- [ ] Introduction to Linux
+- [x] Introduction to GNU/Linux
     - [x] Access
         - [x] Console access
         - [x] Remote access
@@ -23,13 +23,14 @@
         - [x] Brace expansion
         - [x] Command substitution
         - [x] Pipelines
-    - [ ] Vim, Git, Bash, and permissions
+    - [x] Vim, users, groups, and permissions
         - [x] Vim editor
         - [x] Managing users and groups
         - [x] File permissions, selinux
+    - [x] Bash, Git
         - [x] Bash scripting
             - [x] Running scripts automatically
-        - [ ] Git basics
+        - [x] Git basics
 - [ ] Network administration
     - [ ] Setting IP Address
     - [ ] HTTP Server
