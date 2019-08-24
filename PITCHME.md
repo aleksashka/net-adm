@@ -400,3 +400,37 @@ git commit
 git log
 git diff
 ```
+
+---
+
+# Linux for Network Admins
+
+---
+
+## Setting IP address and HTTP Server
+
++++
+
+### Static IP address
+```text
+# /etc/sysconfig/network-scripts/ifcfg-enp0s3
+BOOTPROTO="none"
+IPADDR=192.168.0.2
+PREFIX=24
+GATEWAY=192.168.0.1
+DNS1=192.168.0.1
+DNS2=8.8.8.8
+
+systemctl restart network.service
+```
+
++++
+
+### HTTP Server
+
+```text
+yum install httpd
+systemctl start httpd
+systemctl status httpd
+systemctl enable httpd
+```
