@@ -407,7 +407,7 @@ git diff
 
 ---
 
-## Setting IP address and HTTP Server
+## IP, HTTP, tcpdump, firewalld
 
 +++
 
@@ -430,7 +430,33 @@ systemctl restart network.service
 
 ```text
 yum install httpd
-systemctl start httpd
+http://ip-address/
+ss -tulpan | grep ':80'
 systemctl status httpd
+systemctl start httpd
 systemctl enable httpd
+tcpdump -i eth0 -nn tcp port 80
+iptables -L -n -v
+firewall-cmd --add-service=http
+firewall-cmd --add-service=http --permanent
+```
+
++++
+
+### HTTPS Server
+
+```text
+yum install mod_ssl
+systemctl reload httpd
+firewall-cmd --add-service=https
+yum install certbot python2-certbot-apache
+certbot -d www.example.com --agree-tos
+    --email mail@example.com --no-eff-email
+    -a webroot -w "/var/www/html/" -i apache
+
+certbot certonly --preferred-challenges dns
+    --manual --email mail@example.com
+    --agree-tos --no-eff-email
+    -d www.example.com
+certbot install --apache
 ```

@@ -32,9 +32,11 @@
             - [x] Running scripts automatically
         - [x] Git basics
 - [ ] Network administration
-    - [ ] Setting IP Address
-    - [ ] HTTP Server
-        - [ ] Let's Encrypt certificates
+    - [ ] IP, HTTP, tcpdump
+        - [x] Setting IP Address
+        - [ ] HTTP Server
+            - [x] Let's Encrypt certificates
+            - [ ] Auto renew certificates
     - [ ] DNS Server Configuration
         - [ ] Recursive
         - [ ] Forwarding
