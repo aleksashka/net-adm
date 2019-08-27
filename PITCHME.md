@@ -51,7 +51,7 @@
 
 ---
 
-# Introduction to GNU/Linux
+# Intro to GNU/Linux
 
 ---
 
@@ -65,12 +65,13 @@
 centos-vm login: testuser
 Password: PASSWORD
 [testuser@centos-vm ~]$ exit
-centos-vm login:
-
 
 centos-vm login: root
 Password: PASSWORD
 [root@centos-vm ~]#
+
+# reboot
+# poweroff
 ```
 
 +++
@@ -136,7 +137,7 @@ Command-line package-management utility
 @ul[](false)
 - Install, update, remove packages
 - During the course we will need some additional packages
-- Use `yum install packagename` to install packagename
+- Use `yum install PACKAGENAME` to install PACKAGENAME
     - `yum install traceroute`
 - `yum install -y bash-completion vim wget mc tree man-pages`
 @ulend
@@ -291,6 +292,8 @@ Using tabs (:tabedit [filename], gt, gT,:qa)
 background, number, relativenumber, autoindent,
 expandtab, tabstop, softtabstop, shiftwidth
 ```
+Note:
+vimdiff?
 
 +++
 
