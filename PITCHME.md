@@ -460,3 +460,182 @@ certbot certonly --preferred-challenges dns
     -d www.example.com
 certbot install --apache
 ```
+
+---
+
+## DNS Server
+
++++
+
+### DNS Theory and Installation
+
+```text
+DNS Theory:
+    - Zones (root, delegation)
+    - Start from [a-l].root-servers.net
+        - nslookup
+        - dig
+    - Recursion vs Forwarding
+    - Master vs Slave
+yum install named bind-utils
+/etc/named.conf - main config file
+```
+
++++
+
+### Recursive DNS
+
+```text
+# /etc/named.conf
+acl acl-trusted-ips { localhost; 10.0.2.0/24; };
+acl acl-interfaces  { 127.0.0.1; 10.0.2.5   ; };
+options {
+    listen-on port 53 { acl-interfaces;  };
+    allow-query       { acl-trusted-ips; }; };
+
+# named-checkconf
+# named-checkzone ZONENAME ZONEFILE
+```
+
++++
+
+### Resource Records
+
+@ul[](false)
+- SOA - Start of authority for the zone
+- NS - Nameserver for the zone
+- A - Name to address mapping
+- PTR - Address to name mapping
+- CNAME - Canonical name (alias)
+@ulend
+
++++
+
+### SOA Timers
+
+@ul[](false)
+- `IN SOA nameserver email (serial refresh retry expire neg-ttl)`
+- Serial - increases when content changes
+- Refresh - how often should slave check master for changes
+- Retry - how often to recheck if master is down
+- Expire - if master is unavailable to expire interval, then slave should stop giving answers about the zone
+- Negative caching TTL - TTL for all negative answers
+@ulend
+
++++
+
+### Authoritative DNS
+
+```text
+# Add to /etc/named.conf
+include "/etc/named/named.conf.local";
+
+# /etc/named/named.conf.local
+zone "example.com" IN {
+    type master;
+    file "zones/db.example.com"; };
+zone "2.0.10.in-addr.arpa" {
+    type master;
+    file "zones/db.10.0.2"; };
+```
+
++++
+
+### Authoritative DNS: Forward zone
+
+```text
+# /var/named/zones/db.example.com
+$TTL  10800
+@ IN SOA ns1.example.com. admin.example.com. (
+           2019080100 10800 3600 604800 3600 )
+@       IN      NS      ns1.example.com.
+@       IN      NS      ns2.example.com.
+
+ns1     IN      A       10.0.2.5
+ns2     IN      A       10.0.2.6
+pc1 30m IN      A       10.0.2.9
+```
+
++++
+
+### Authoritative DNS: Reverse zone
+
+```text
+# /var/named/zones/db.10.0.2
+$TTL     3h
+@    SOA ns1.example.com. admin.example.com. (
+           2019080100    3h   1h     1w   1h )
+                NS      ns1.example.com.
+                NS      ns2.example.com.
+
+5               PTR     ns1.example.com.
+6               PTR     ns2.example.com.
+9   30m         PTR     pc1.example.com.
+```
+
++++
+
+### Forwarding DNS
+
+```text
+# Add to /etc/named/named.conf.local
+zone "alakin.org" IN {
+    type       forward;
+    forwarders { 192.168.1.1; };
+};
+zone "1.168.192.in-addr.arpa" IN {
+    type       forward;
+    forwarders { 192.168.1.1; };
+};
+
+```
+
++++
+
+### Response Policy Zone Config
+
+```text
+# Add to "options" of /etc/named.conf
+response-policy { zone "rpz"; };
+
+# Add to /etc/named/named.conf.local
+zone "rpz" {
+    type master;
+    file "zones/db.rpz";
+    allow-query { none; };
+};
+```
+
++++
+
+### RPZ RRs
+
+```text
+# /var/named/zones/db.rpz
+$TTL     1h
+@ IN SOA ns1.example.com. admin.example.com. (
+           2019080100    1h  15m     1w   1h )
+
+ya.ru  A     192.168.1.1 ; Redirect to this IPv4
+       AAAA  2001:DB8::1 ; and this IPv6
+ip4.me CNAME .           ; NXDOMAIN
+ip6.me CNAME *.          ; NODATA
+```
+
++++
+
+### Master and Slave Servers
+
+```text
+# Add to master zone
+zone "alakin.org" {
+    allow-transfer { 192.168.2.2; };
+};
+# Slave zone /etc/named/named.conf.local
+zone "alakin.org" {
+    type slave;
+    masters { 192.168.1.1; };
+    file "slaves/db.basu";
+};
+```
+

@@ -37,11 +37,19 @@
         - [ ] HTTP Server
             - [x] Let's Encrypt certificates
             - [ ] Auto renew certificates
-    - [ ] DNS Server Configuration
-        - [ ] Recursive
-        - [ ] Forwarding
-        - [ ] Authoritative
-        - [ ] Master/Slave
+    - [x] BIND DNS Server
+        - [x] DNS Theory and Installation
+        - [x] Recursive DNS
+        - [x] Resource Records
+            - [x] SOA Timers
+        - [x] Authoritative DNS
+            - [x] Forward zone
+            - [x] Reverse zone
+        - [x] Forwarding DNS
+        - [x] Response Policy Zone
+            - [x] RPZ Config
+            - [x] RPZ RRs
+        - [x] Master and Slave Servers
     - [ ] Cacti
         - [ ] SNMP
             - [ ] Versions
