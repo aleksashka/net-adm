@@ -51,6 +51,11 @@
             - [x] RPZ RRs
         - [x] Master and Slave Servers
     - [ ] Cacti
+        - [x] Installation
+            - [x] Packages
+            - [x] Configure MariaDB
+            - [x] Configure HTTPD
+            - [x] Installation Wizard
         - [ ] SNMP
             - [ ] Versions
             - [ ] Using snmp-walk, snmp-get

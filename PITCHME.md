@@ -667,3 +667,47 @@ zone "alakin.org" { # Slave zone config (2.2)
 };
 ```
 
+---
+
+## Cacti
+
++++
+
+### Installation and configuration
+```text
+yum install cacti mariadb-server php php-pear \
+  php-bcmath php-mysqlnd
+sed -i -r -e 's|(memory_limit).*|\1 = 800M|' -e \
+  's|;(date.timezone).*|\0\n\1 = Asia/Almaty|'  \
+  -e 's|(max_execution_time).*|\1 = 60|'        \
+  /etc/php.ini
+# Add cacti/cacti-db.cnf to the following file:
+vim /etc/my.cnf.d/server.cnf
+systemctl enable mariadb
+systemctl start  mariadb
+```
+Note:
+```text
+grep 'date.timezone' /etc/php.ini | grep       \
+  '^[^;]' >/dev/null; if [ $? -eq 1 ]; then    \
+  cp /etc/php.ini{,.orig}; sed -i -r -e        \
+  's|;(date.timezone).*|\0\n\1 = Asia/Almaty|' \
+  /etc/php.ini; fi
+```
+
++++
+
+### MariaDB and HTTP
+
+```text
+/usr/bin/mysql_secure_installation
+mysql_tzinfo_to_sql /usr/share/zoneinfo | \
+  mysql -u root -p mysql
+mysql -u root -p
+# Run commands from cacti-config/cacti-db.cnf
+vim /etc/cacti/db.php # MariaDB user and pass
+vim /etc/httpd/conf.d/cacti.conf # Access
+systemctl reload httpd
+# https://host.domain/cacti/
+# Check /etc/cron.d/cacti
+```
