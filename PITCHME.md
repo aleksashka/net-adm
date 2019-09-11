@@ -196,12 +196,12 @@ grep ' 53/udp' /etc/services
 ### Managing files
 
 ```text
-touch file1.txt file2.txt file3.txt
+touch f1.txt f2.txt f3.txt
 mkdir files backup tempdir
-mv file1.txt file2.txt file3.txt files
-cp files/file1.txt files/file2.txt files/file3.txt backup
+mv f1.txt f2.txt f3.txt files
+cp files/f1.txt files/f2.txt files/f3.txt backup
 cd files
-cp file1.txt file2.txt file3.txt ../backup
+cp f1.txt f2.txt f3.txt ../backup
 rmdir files backup tempdir
 cd ..
 rmdir files backup tempdir
@@ -305,8 +305,8 @@ id
 Switching users (su vs su -)
 Superuser access (sudo)
 # ls -l /home/alex/
-drwxrwxr-x. 3 alex alex   21 Aug 14 09:48 github
--rw-rw-r--. 1 alex alex 1970 Aug 22 17:46 filename.txt
+drwxrwxr-x. 3 alex alex   21 Aug 14 09:48 dir
+-rw-rw-r--. 1 alex alex 1970 Aug 22 17:46 f.txt
 chown OWNER[:GROUP] FILE...
 TODO: who can chown? root only
 practice
@@ -394,7 +394,8 @@ Initially crontab, then cron.d directory
 ### Git basics
 
 ```text
-yum install https://centos7.iuscommunity.org/ius-release.rpm
+yum install https://centos7.iuscommunity.org/ ..
+         .. ius-release.rpm
 yum install git2u
 git init
 git status
