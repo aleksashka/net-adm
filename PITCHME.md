@@ -457,16 +457,33 @@ firewall-cmd --add-service=http --permanent
 yum install mod_ssl
 systemctl reload httpd
 firewall-cmd --add-service=https
-yum install certbot python2-certbot-apache
-certbot -d www.example.com --agree-tos
-    --email mail@example.com --no-eff-email
-    -a webroot -w "/var/www/html/" -i apache
+```
 
-certbot certonly --preferred-challenges dns
-    --manual --email mail@example.com
-    --agree-tos --no-eff-email
-    -d www.example.com
++++
+
+### Let's Encrypt
+
+```text
+yum install certbot python2-certbot-apache
+certbot --domain www.example.com --agree-tos \
+    --email mail@example.com --no-eff-email  \
+    -a webroot -w '/var/www/html/' -i apache
+
+certbot certonly --domain www.example.com \
+    --manual --preferred-challenges dns
+
 certbot install --apache
+```
+
++++
+
+### Renew certificates
+
+```text
+certbot renew    [--dry-run] [--noninteractive]
+certbot certonly [--dry-run]
+systemctl cat certbot-renew.service
+systemctl enable certbot-renew.timer
 ```
 
 ---

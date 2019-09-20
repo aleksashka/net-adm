@@ -32,11 +32,11 @@
             - [x] Running scripts automatically
         - [x] Git basics
 - [ ] Network administration
-    - [ ] IP, HTTP, tcpdump
+    - [x] IP, HTTP, tcpdump
         - [x] Setting IP Address
-        - [ ] HTTP Server
+        - [x] HTTP Server
             - [x] Let's Encrypt certificates
-            - [ ] Auto renew certificates
+            - [x] Auto renew certificates
     - [x] BIND DNS Server
         - [x] DNS Theory and Installation
         - [x] Recursive DNS
