@@ -133,14 +133,18 @@ Bash (Bourne-Again SHell) - shell, or command language interpreter
 
 ## yum
 
-Command-line package-management utility
 @ul[](false)
+- Command-line package-management utility
 - Install, update, remove packages
-- During the course we will need some additional packages
 - Use `yum install PACKAGENAME` to install PACKAGENAME
     - `yum install traceroute`
-- `yum install -y bash-completion vim wget mc tree man-pages`
+- `yum search KEYWORD`
+- Some packages: `bash-completion vim wget mc tree man-pages`
+- `yum info bash-completion`
+- `yum repolist`
 @ulend
+Note:
+yum --disablerepo=updates repolist
 
 ---
 
@@ -200,11 +204,9 @@ touch f1.txt f2.txt f3.txt
 mkdir files backup tempdir
 mv f1.txt f2.txt f3.txt files
 cp files/f1.txt files/f2.txt files/f3.txt backup
-cd files
-cp f1.txt f2.txt f3.txt ../backup
+cd files; cp f1.txt f2.txt f3.txt ../backup
 rmdir files backup tempdir
-cd ..
-rmdir files backup tempdir
+cd ..;  rmdir files backup tempdir
 rm -r files backup
 ```
 
@@ -270,7 +272,7 @@ find /etc -name 'ifcfg*' > files.txt
 find /etc -name 'ifcfg*' > files.txt 2> /dev/null
 find /etc -name 'ifcfg*' > files.txt 2>&1
 cat files.txt | grep 'ifcfg' | wc -l
-cat files.txt | grep 'ifcfg' | tee $(tty) | wc -l
+cat files.txt | grep 'ifcfg' | tee f.txt | wc -l
 ```
 
 ---
@@ -394,8 +396,8 @@ Initially crontab, then cron.d directory
 ### Git basics
 
 ```text
-yum install https://centos7.iuscommunity.org/ ..
-         .. ius-release.rpm
+yum install https://centos7.iuscommunity.org/\
+ius-release.rpm
 yum install git2u
 git init
 git status
@@ -404,6 +406,8 @@ git commit
 git log
 git diff
 ```
+Note:
+gpg --with-fingerprint FILENAME - to show fingerprint of key in FILENAME
 
 ---
 
@@ -481,7 +485,7 @@ DNS Theory:
         - dig
     - Recursion vs Forwarding
     - Master vs Slave
-yum install named bind-utils
+yum install bind bind-utils
 /etc/named.conf - main config file
 ```
 
@@ -491,11 +495,12 @@ yum install named bind-utils
 
 ```text
 # /etc/named.conf
-acl acl-trusted-ips { localhost; 10.0.2.0/24; };
 acl acl-interfaces  { 127.0.0.1; 10.0.2.5   ; };
+acl acl-trusted-ips { localhost; 10.0.2.0/24; };
 options {
     listen-on port 53 { acl-interfaces;  };
-    allow-query       { acl-trusted-ips; }; };
+    allow-query       { acl-trusted-ips; };
+};
 
 # named-checkconf
 # named-checkzone ZONENAME ZONEFILE
@@ -585,10 +590,12 @@ $TTL     3h
 # Add to /etc/named/named.conf.local
 zone "alakin.org" IN {
     type       forward;
+    forward    first;
     forwarders { 192.168.1.1; };
 };
 zone "1.168.192.in-addr.arpa" IN {
     type       forward;
+    forward    only;
     forwarders { 192.168.1.1; };
 };
 
@@ -600,7 +607,8 @@ zone "1.168.192.in-addr.arpa" IN {
 
 ```text
 # Add to "options" of /etc/named.conf
-response-policy { zone "rpz"; };
+response-policy { zone "rpz"; }
+    qname-wait-recurse no;
 
 # Add to /etc/named/named.conf.local
 zone "rpz" {
@@ -631,12 +639,11 @@ ip6.me CNAME *.          ; NODATA
 ### Master and Slave Servers
 
 ```text
-# Add to master zone
-zone "alakin.org" {
+zone "alakin.org" { # Master zone config (1.1)
     allow-transfer { 192.168.2.2; };
 };
-# Slave zone /etc/named/named.conf.local
-zone "alakin.org" {
+
+zone "alakin.org" { # Slave zone config (2.2)
     type slave;
     masters { 192.168.1.1; };
     file "slaves/db.basu";
