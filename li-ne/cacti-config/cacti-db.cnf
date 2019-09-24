@@ -1,0 +1,6 @@
+CREATE DATABASE IF NOT EXISTS cacti;
+USE cacti;
+SOURCE /usr/share/doc/cacti-1.2.6/cacti.sql;
+GRANT ALL PRIVILEGES ON cacti.* TO 'cactiusername'@'localhost' IDENTIFIED BY 'cactipassword';
+GRANT SELECT ON mysql.time_zone_name TO 'cactiusername'@'localhost';
+FLUSH PRIVILEGES;
