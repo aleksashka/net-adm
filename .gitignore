@@ -1,8 +1,0 @@
-/*
-!.gitignore
-!/githooks/
-!*.tex
-!*.txt
-!*.md
-!/common/images/*.png
-!/common/images/*.jpg
