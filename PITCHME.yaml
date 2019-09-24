@@ -1,4 +1,4 @@
-theme-override : PITCHME.css
+theme-override : common/css/PITCHME.css
 highlight : ascetic
 #highlight : foundation
 #highlight : googlecode
