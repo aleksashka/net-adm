@@ -407,6 +407,10 @@ git log
 git diff
 ```
 Note:
+tune epel.repo
+
+`time yum repolist --disablerepo="*" --enablerepo="epel"`
+
 gpg --with-fingerprint FILENAME - to show fingerprint of key in FILENAME
 
 ---
