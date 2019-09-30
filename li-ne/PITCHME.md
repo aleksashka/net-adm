@@ -717,3 +717,22 @@ systemctl reload httpd
 # https://host.domain/cacti/
 # Check /etc/cron.d/cacti
 ```
+
++++
+
+### SNMP
+@ul[](false)
+- [Simple Network Management Protocol](https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol)
+- Management information base
+- Messages:
+  - GetRequest (.1.3.6.1.2.1.1.5.0)
+  - GetResponse (STRING: alaGW.alakin.org)
+- Versions: 1, 2c, 3
+- snmpget, snmpwalk
+- Adding MIBs
+@ulend
+
+Note:
+snmpwalk -v2c -cCOMMUNITY ip.add.re.ss .1.3.6.1.4.1.9.9.48.1.1.1
+./cisco-memory-mib.sh
+snmpwalk -v2c -cCOMMUNITY ip.add.re.ss .1.3.6.1.4.1.9.9.48.1.1.1

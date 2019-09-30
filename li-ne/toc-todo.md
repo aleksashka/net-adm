@@ -56,10 +56,10 @@
             - [x] Configure MariaDB
             - [x] Configure HTTPD
             - [x] Installation Wizard
-        - [ ] SNMP
-            - [ ] Versions
-            - [ ] Using snmp-walk, snmp-get
-            - [ ] Adding MIB files
+        - [x] SNMP
+            - [x] Versions
+            - [x] Using snmpwalk, snmpget
+            - [x] Adding MIB files
         - [ ] Adding
             - [ ] Devices
             - [ ] Graphs
