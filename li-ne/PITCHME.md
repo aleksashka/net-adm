@@ -1,4 +1,6 @@
 ## Environment
+Note:
+vim: set syntax=markdown colorcolumn=49:
 
 +++
 
