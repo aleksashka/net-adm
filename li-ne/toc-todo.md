@@ -60,12 +60,13 @@
             - [x] Versions
             - [x] Using snmpwalk, snmpget
             - [x] Adding MIB files
-        - [ ] Adding
-            - [ ] Devices
-            - [ ] Graphs
+        - [x] Basic Cacti Usage
+            - [x] Adding Devices
+            - [x] Adding Graphs
+            - [x] Using Trees
+            - [x] Reporting
         - [ ] Plugins
             - [ ] Thold
-            - [ ] Nectar
             - [ ] Syslog
             - [ ] Smokeping?
             - [ ] Weathermap?

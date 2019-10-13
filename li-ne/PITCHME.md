@@ -736,3 +736,53 @@ Note:
 snmpwalk -v2c -cCOMMUNITY ip.add.re.ss .1.3.6.1.4.1.9.9.48.1.1.1
 ./cisco-memory-mib.sh
 snmpwalk -v2c -cCOMMUNITY ip.add.re.ss .1.3.6.1.4.1.9.9.48.1.1.1
+
++++
+
+### Monitoring network devices
+
+@ul[](false)
+- Add device (Create > New Device)
+  - Hostname
+  - Device Template
+  - SNMP Version and Community
+- Add graph (Create > New Graphs)
+  - Choose device
+  - Data Query > Select a Graph Type
+    - In/Out Bits (64-bit, BW)
+    - In/Out (Errors/Discards)
+  - Adding graphs to trees using:
+    - Sites
+    - Trees
+@ulend
+
++++
+
+### Sending emails
+
+@ul[](false)
+- Console > Configuration > Settings > Mail/Reporting/DNS
+  - Test Email
+  - Mail Services = SMTP:
+    - Hostname = smtp.gmail.com
+    - Port = 587
+    - Username = Gmail username
+    - Password = Gmail password
+    - Security = TLS
+  - Send a Test Email
+@ulend
+
++++
+
+### Reporting (Nectar Plugin)
+
+@ul[](false)
+- Reporting > Add
+  - Next Timestamp for Sending Mail Report
+  - Report Interval
+  - To Email Address(es)
+- Items > Add
+  - Text / Graph / Horizontal Rule
+- Preview
+- Events
+@ulend
