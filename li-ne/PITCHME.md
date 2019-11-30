@@ -480,6 +480,10 @@ certbot certonly --domain www.example.com \
 
 certbot install --apache
 ```
+Note:
+```
+rsync -a -e "ssh -p2222" user@host:/root/git/letsencrypt/fake-only/ /etc/letsencrypt/
+```
 
 +++
 
@@ -687,8 +691,8 @@ sed -i -r -e 's|(memory_limit).*|\1 = 800M|' -e \
   's|;(date.timezone).*|\0\n\1 = Asia/Almaty|'  \
   -e 's|(max_execution_time).*|\1 = 60|'        \
   /etc/php.ini
-# Add cacti/cacti-db.cnf to the following file:
-vim /etc/my.cnf.d/server.cnf
+# Add cacti-config/my.cnf.d-server.cnf to:
+/etc/my.cnf.d/server.cnf
 systemctl enable mariadb
 systemctl start  mariadb
 ```
@@ -717,6 +721,14 @@ systemctl reload httpd
 # https://host.domain/cacti/
 # Check /etc/cron.d/cacti
 ```
+Note:
+```
+<Directory /usr/share/cacti/>
+    <IfModule mod_authz_core.c>
+        # httpd 2.4
+        Require host localhost
+        Require ip 10.2
+```
 
 +++
 
@@ -734,7 +746,9 @@ systemctl reload httpd
 
 Note:
 snmpwalk -v2c -cCOMMUNITY ip.add.re.ss .1.3.6.1.4.1.9.9.48.1.1.1
+
 ./cisco-memory-mib.sh
+
 snmpwalk -v2c -cCOMMUNITY ip.add.re.ss .1.3.6.1.4.1.9.9.48.1.1.1
 
 +++

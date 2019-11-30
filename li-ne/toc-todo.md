@@ -64,13 +64,12 @@
             - [x] Adding Devices
             - [x] Adding Graphs
             - [x] Using Trees
-            - [x] Reporting
+            - [x] Reporting via Gmail
         - [ ] Plugins
             - [ ] Thold
             - [ ] Syslog
             - [ ] Smokeping?
             - [ ] Weathermap?
-        - [ ] Email
         - [ ] Remote data collection?
     - [ ] nfsen
         - [ ] Autostart
