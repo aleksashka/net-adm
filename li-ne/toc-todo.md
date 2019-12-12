@@ -78,10 +78,10 @@
               - [x] Rules
         - [ ] Guest user?
         - [ ] Remote data collection?
-    - [ ] nfsen
-        - [ ] Install
-        - [ ] Configure
-        - [ ] Autostart
+    - [x] nfsen
+        - [x] Installation
+        - [x] Configuration
+        - [x] Exporting flows
     - [ ] RANCID
         - [ ] Web-interface
     - [ ] TACACS+

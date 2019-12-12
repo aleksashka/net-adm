@@ -1,0 +1,11 @@
+--- install.pl	2019-05-20 16:45:33.351998830 +0600
++++ install.pl.orig	2019-05-20 16:45:20.699977637 +0600
+@@ -553,7 +553,7 @@
+ 				if( ! -f "$NfConf::PROFILEDATADIR/$profilepath/$channel/.nfstat") { 
+ 					# no shadow profile, but missing channel stat
+ 					print "Rebuilding profile stats for '$profilegroup/$profilename'\n";
+-					NfProfile::DoRebuild(*STDOUT, \%profileinfo, $profilename, $profilegroup, $profilepath, 1, 0);
++					NfProfile::DoRebuild(\%profileinfo, $profilename, $profilegroup, $profilepath, 1, 0);
+ 					NfProfile::WriteProfile(\%profileinfo);
+ 				}
+ 				# make sure it's own by nfsen_uid after the rebuild

@@ -948,3 +948,93 @@ select id, name_cache, notify_extra from thold_data;
   - Removal Rules - remove unwanted messages
   - Report Rules - send periodic emails with a list of specific messages
 @ulend
+
+---
+
+## nfsen
+
++++
+
+### Overview
+
+@ul[](false)
+- [nfdump](http://nfdump.sourceforge.net/) - netflow display and analyze program
+- [nfsen](http://nfsen.sourceforge.net/) - graphical web based front end for the nfdump netflow tools
+- [plugins](https://github.com/mdjunior/nfsen-plugins)
+- [Install guide 1](https://github.com/paidegua/nfsen_on_centos7)
+- [Install guide 2](https://wiki.polaire.nl/doku.php?id=nfsen_centos7)
+@ulend
+
++++
+
+### Installation
+
+```text
+cd /usr/local/src/
+# https://github.com/phaag/nfdump/
+# https://sourceforge.net/projects/nfsen/
+
+yum install doxygen rrdtool-perl rrdtool-devel \
+  flow-tools-devel bzip2-devel perl-Sys-Syslog \
+  libpcap-devel flex libtool flow-tools byacc  \
+  perl-Socket6 perl-MIME-tools perl-MailTools
+
+# check and run misc/nfsen.sh
+```
+
++++
+
+### Configuration
+
+```text
+# last section of misc/nfsen.sh
+cd /opt/nfsen/bin/; ./nfsen --help
+./nfsen --add-profile "Ala" shadow=1
+
+./nfsen --add-channel "Ala/LAN"     \
+  filter="dst net 192.168.2.0/24"   \
+  sourcelist="ala-src" colour=#00FF00
+
+./nfsen --add-channel "Ala/WLAN"    \
+  filter="dst net 192.168.3.0/24"   \
+  sourcelist="ala-src" colour=#0000FF
+
+./nfsen --commit-profile "Ala"
+```
+
++++
+
+### Exporting flows from Cisco
+
+[Cisco IOS NetFlow Configuration (Release 15M&T)](https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/netflow/configuration/15-mt/nf-15-mt-book/get-start-cfg-nflow.html)
+```text
+configure terminal
+ip flow-export version 9
+ip flow-export destination 192.168.0.1 9996
+interface FastEthernet0
+ ip flow ingress
+ ip flow egress
+end
+
+# samplicator to duplicate UDP datagrams
+```
+
+Note:
+
+wget https://github.com/sleinen/samplicator/releases/download/v1.3.6/samplicator-1.3.6.tar.gz
+
+tar xzf samplicator-1.3.6.tar.gz
+
+chown -R root: samplicator-1.3.6
+
+cd samplicator-1.3.6
+
+./configure
+
+make
+
+make install
+
+samplicate -p 9995 -S 192.168.100.20/9996 192.168.100.24/9996 192.168.100.2/9996
+
+samplicate -d 1 -p 9995 -S 192.168.100.20/9996 192.168.100.24/9996 192.168.100.2/9996
