@@ -765,9 +765,20 @@ snmpwalk -v2c -cCOMMUNITY ip.add.re.ss .1.3.6.1.4.1.9.9.48.1.1.1
   - Data Query > Select a Graph Type
     - In/Out Bits (64-bit, BW)
     - In/Out (Errors/Discards)
-  - Adding graphs to trees using:
-    - Sites
-    - Trees
+@ulend
+
++++
+
+### Working with graphs
+
+@ul[](false)
+- Sites
+- Trees
+- Real-time Graphs (Configuration > Settings)
+  - Visual > Real-time Graphs
+    - Graph Timespan
+    - Refresh Interval
+    - Logout/Login and check
 @ulend
 
 +++
@@ -776,15 +787,19 @@ snmpwalk -v2c -cCOMMUNITY ip.add.re.ss .1.3.6.1.4.1.9.9.48.1.1.1
 
 @ul[](false)
 - Console > Configuration > Settings > Mail/Reporting/DNS
+  - Server Base URL
   - Test Email
   - Mail Services = SMTP:
     - Hostname = smtp.gmail.com
     - Port = 587
-    - Username = Gmail username
-    - Password = Gmail password
+    - Username/Password
     - Security = TLS
   - Send a Test Email
 @ulend
+
+Note: Elaborate on which password should be used
+
+Base URL should be without slash at the end
 
 +++
 

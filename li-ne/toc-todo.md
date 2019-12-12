@@ -63,6 +63,7 @@
         - [x] Basic Cacti Usage
             - [x] Adding Devices
             - [x] Adding Graphs
+            - [x] Real-time Graphs
             - [x] Using Trees
             - [x] Reporting via Gmail
         - [ ] Plugins
