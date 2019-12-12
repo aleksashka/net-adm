@@ -145,7 +145,9 @@ Bash (Bourne-Again SHell) - shell, or command language interpreter
 - `yum info bash-completion`
 - `yum repolist`
 @ulend
+
 Note:
+
 yum --disablerepo=updates repolist
 
 ---
@@ -296,7 +298,9 @@ Using tabs (:tabedit [filename], gt, gT,:qa)
 background, number, relativenumber, autoindent,
 expandtab, tabstop, softtabstop, shiftwidth
 ```
+
 Note:
+
 vimdiff?
 
 +++
@@ -317,6 +321,7 @@ practice
 ```
 
 Note:
+
 man 5 passwd
 
 man 5 group
@@ -391,6 +396,7 @@ tail -f /tmp/ldem.log
 ```
 
 Note:
+
 Initially crontab, then cron.d directory
 
 +++
@@ -408,7 +414,9 @@ git commit
 git log
 git diff
 ```
+
 Note:
+
 tune epel.repo
 
 `time yum repolist --disablerepo="*" --enablerepo="epel"`
@@ -480,7 +488,9 @@ certbot certonly --domain www.example.com \
 
 certbot install --apache
 ```
+
 Note:
+
 ```
 rsync -a -e "ssh -p2222" user@host:/root/git/letsencrypt/fake-only/ /etc/letsencrypt/
 ```
@@ -696,7 +706,9 @@ sed -i -r -e 's|(memory_limit).*|\1 = 800M|' -e \
 systemctl enable mariadb
 systemctl start  mariadb
 ```
+
 Note:
+
 ```text
 grep 'date.timezone' /etc/php.ini | grep       \
   '^[^;]' >/dev/null; if [ $? -eq 1 ]; then    \
@@ -721,7 +733,9 @@ systemctl reload httpd
 # https://host.domain/cacti/
 # Check /etc/cron.d/cacti
 ```
+
 Note:
+
 ```
 <Directory /usr/share/cacti/>
     <IfModule mod_authz_core.c>
@@ -745,6 +759,7 @@ Note:
 @ulend
 
 Note:
+
 snmpwalk -v2c -cCOMMUNITY ip.add.re.ss .1.3.6.1.4.1.9.9.48.1.1.1
 
 ./cisco-memory-mib.sh
@@ -898,6 +913,7 @@ if $fromhost-ip<>'127.0.0.1' then \
 ```
 
 Note:
+
 [Logs flooded with systemd messages](https://access.redhat.com/solutions/1564823)
 
 Start filename.conf with zero, to make sure it is read first
