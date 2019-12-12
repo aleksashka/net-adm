@@ -71,10 +71,11 @@
                 - [x] Install
                 - [x] Uptime monitoring example
                 - [x] Automatic creation
-            - [ ] Smokeping?
-            - [ ] Weathermap?
+        - [ ] Guest user?
         - [ ] Remote data collection?
     - [ ] nfsen
+        - [ ] Install
+        - [ ] Configure
         - [ ] Autostart
     - [ ] RANCID
         - [ ] Web-interface
@@ -87,6 +88,8 @@
 - [ ] man command
 - [ ] repo-files, &cc=kz
 - [ ] WinSCP
+- [ ] Smokeping?
+- [ ] Weathermap?
 
 ## ToDo
 - [ ] Make inline code more noticeable (grey background?)
