@@ -815,3 +815,52 @@ Base URL should be without slash at the end
 - Preview
 - Events
 @ulend
+
++++
+
+### Thold Plugin
+
+@ul[](false)
+- Download from github.com/Cacti/plugin_thold
+- Unpack to /usr/share/cacti/plugins/thold
+- Cacti > Console > Configuration
+  - Plugins
+    - Install Thold
+    - Enable Thold
+  - Settings > Alerting/Thold
+    - Dead Device Notifications Email
+- Console > Management > Thresholds > Add
+@ulend
+
++++
+
+### Templating Uptime Notifications
+
+@ul[](false)
+- Console > Templates > Threshold > Add
+  - Persistent Acknowledgment
+  - Re-Alert Cycle: Every Day
+  - Alert Low Threshold: 8640000
+- Manually create threshold from template:
+  - Management > Thresholds > Add
+    - Threshold Template
+    - Select threshold template
+    - Select graph template
+    - Select device to apply threshold
+@ulend
+
++++
+
+### Automating thresholds
+
+@ul[](false)
+- Associate threshold template with device template:
+  - Templates > Device > Select device template:
+    - Associated Threshold Templates
+      - Add Threshold Template
+- Apply multiple thresholds to multiple devices:
+  - Management > Devices > Select devices > Apply Thresholds > Go
+- Auto apply thresholds on creation:
+  - Configuration > Settings > Alerting/Thold
+    - Auto Create Thresholds > Yes
+@ulend

@@ -67,8 +67,10 @@
             - [x] Using Trees
             - [x] Reporting via Gmail
         - [ ] Plugins
-            - [ ] Thold
-            - [ ] Syslog
+            - [x] Thold
+                - [x] Install
+                - [x] Uptime monitoring example
+                - [x] Automatic creation
             - [ ] Smokeping?
             - [ ] Weathermap?
         - [ ] Remote data collection?
