@@ -71,6 +71,11 @@
                 - [x] Install
                 - [x] Uptime monitoring example
                 - [x] Automatic creation
+            - [x] Syslog
+              - [x] Install
+              - [x] Configure
+              - [x] Test
+              - [x] Rules
         - [ ] Guest user?
         - [ ] Remote data collection?
     - [ ] nfsen

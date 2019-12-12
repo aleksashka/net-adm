@@ -864,3 +864,87 @@ Base URL should be without slash at the end
   - Configuration > Settings > Alerting/Thold
     - Auto Create Thresholds > Yes
 @ulend
+
++++
+
+### Syslog plugin installation
+
+@ul[](false)
+- install `rsyslog-mysql`
+- Download from github.com/Cacti/plugin_syslog
+- Unpack to /usr/share/cacti/plugins/syslog
+- `cp config.php.dist config.php`
+- edit `config.php`
+- Cacti > Console > Configuration > Plugins
+  - Install Syslog
+  - Enable Syslog
+@ulend
+
++++
+
+### Syslog configuration
+
+```text
+# copy cacti-config/rsyslog.d-cacti.conf to
+# /etc/rsyslog.d/cacti.conf
+systemctl restart rsyslog
+
+# Tune /etc/rsyslog.d/cacti.conf if needed
+# Do not send local logs to database
+if $fromhost-ip<>'127.0.0.1' then \
+:ommysql:localhost,db,user,pass;cacti_syslog
+# Stop processing these logs by rsyslog rules
+& stop
+```
+
+Note:
+[Logs flooded with systemd messages](https://access.redhat.com/solutions/1564823)
+
+Start filename.conf with zero, to make sure it is read first
+
+logger --udp --server 192.168.100.20 -- "Log message from 192.168.100.2"
+
+mysql -u root -p
+
+show databases;
+
+use cacti;
+
+show tables;
+
+show columns from syslog;
+
+select &ast; from syslog;
+
+select &ast; from syslog where message like '%2020%';
+
+select host_id, logtime, message from syslog where message like '%2020%';
+
+select host_id, logtime, message from syslog where host_id <> '1';
+
+select host_id, logtime, substring(message,1,50) from syslog where host_id <> '1';
+
+show tables;
+
+select * from syslog_hosts;
+
+select syslog_hosts.host, logtime, substring(message,1,50) from syslog inner join syslog_hosts ON syslog.host_id=syslog_hosts.host_id where syslog.host_id<>'1';
+
+Bug [#369](https://github.com/Cacti/plugin_thold/issues/369) in thold 1.3.2
+
+select id, name_cache, notify_extra from thold_data;
+
+update thold_data set notify_extra='alakinalexandr+fake.cacti@gmail.com' where id='2';
+
+select id, name_cache, notify_extra from thold_data;
+
++++
+
+### Syslog plugin alerts
+
+@ul[](false)
+- Console > Syslog Settings
+  - Alert Rules - send email upon receiving specific syslog message
+  - Removal Rules - remove unwanted messages
+  - Report Rules - send periodic emails with a list of specific messages
+@ulend
