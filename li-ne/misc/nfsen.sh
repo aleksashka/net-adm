@@ -32,7 +32,7 @@ sed -i -r \
 -e "s|(.*(\$PERL_HAS_MEMLEAK=).*)|\1\n\21;|" \
 -e "s|(.*'demoplugin'.*)|\1\n    [ '*',     'PortTracker' ],|" \
 -e 's|^(\$BASEDIR\s*=\s*).*|\1"/opt/nfsen";|' \
--e 's|^(\$WWW.* = ).*|\1"apache";|' etc/nfsen.conf \
+-e 's|^(\$WWW.* = ).*|\1"apache";|' \
 -e "s|.*peer1.*|    'ala-src'      => { 'port' => '9996', 'col' => '#ff0000', 'IP' => '192.168.1.1' },|" \
 -e "s|.*peer2.*|    'ast-src'      => { 'port' => '9996', 'col' => '#00ff00', 'IP' => '192.168.1.2' },|" \
 -e "s|(.*upstream1.*)|#\1|" \
