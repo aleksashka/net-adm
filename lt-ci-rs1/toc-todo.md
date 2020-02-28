@@ -1,40 +1,39 @@
 ## ToC
 - [ ] Introduction
-    - [ ] Network components
-        - [ ] Routers
-        - [ ] Switches
-        - [ ] L3 Switches
-        - [ ] Access points
-        - [ ] Security devices (FW, IPS)
-        - [ ] Controllers
-        - [ ] Endpoints
-        - [ ] Servers
-        - [ ] Virtualization principles
-    - [ ] Network topology architectures
-        - [ ] 2-tier
-        - [ ] 3-tier
-        - [ ] Spine-leaf
-        - [ ] WAN
-        - [ ] SOHO
-        - [ ] On-premises vs cloud
-    - [ ] Network characteristics
-        - [ ] Physical topology
-        - [ ] Logical topology
-        - [ ] Reliability
-        - [ ] Availability
-        - [ ] Scalability
-    - [ ] Network protocols
-        - [ ] Internet Protocol
-        - [ ] Ethernet
-        - [ ] Address Resolution Protocol
-        - [ ] Domain Name System
-        - [ ] Dynamic Host Configuration Protocol
-        - [ ] Open Shortest Path First
-    - [ ] Communications Models
-        - [ ] Open Systems Interconnection
-        - [ ] TCP/IP Stack
-- [ ] Basic L3
-    - [ ] IP, IP Address and Subnet Mask
+    - [x] Network components
+        - [x] Routers
+        - [x] Switches
+        - [x] L3 Switches
+        - [x] Access points
+        - [x] Security devices (FW, IPS)
+        - [x] Controllers
+        - [x] Endpoints
+        - [x] Servers
+        - [x] Virtualization principles
+    - [x] Network topology architectures
+        - [x] 2-tier
+        - [x] 3-tier
+        - [x] Spine-leaf
+        - [x] WAN
+        - [x] SOHO
+        - [x] On-premises vs cloud
+    - [x] Network characteristics
+        - [x] Physical topology
+        - [x] Logical topology
+        - [x] Reliability
+        - [x] Availability
+        - [x] Scalability
+    - [x] Network protocols
+        - [x] Internet Protocol
+        - [x] Ethernet
+        - [x] Address Resolution Protocol
+        - [x] Domain Name System
+        - [x] Dynamic Host Configuration Protocol
+        - [x] Open Shortest Path First
+    - [x] Communications Models
+        - [x] Open Systems Interconnection
+        - [x] TCP/IP Stack
+- [ ] Basics of IP
     - [ ] Binary-Decimal-Binary conversion
     - [ ] Meaning of the Mask
     - [ ] Configuring IP Addresses
