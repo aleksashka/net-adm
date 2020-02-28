@@ -1,0 +1,216 @@
+## ToC
+- [ ] Introduction
+    - [ ] Network components
+        - [ ] Routers
+        - [ ] Switches
+        - [ ] L3 Switches
+        - [ ] Access points
+        - [ ] Security devices (FW, IPS)
+        - [ ] Controllers
+        - [ ] Endpoints
+        - [ ] Servers
+        - [ ] Virtualization principles
+    - [ ] Network topology architectures
+        - [ ] 2-tier
+        - [ ] 3-tier
+        - [ ] Spine-leaf
+        - [ ] WAN
+        - [ ] SOHO
+        - [ ] On-premises vs cloud
+    - [ ] Network characteristics
+        - [ ] Physical topology
+        - [ ] Logical topology
+        - [ ] Reliability
+        - [ ] Availability
+        - [ ] Scalability
+    - [ ] Network protocols
+        - [ ] Internet Protocol
+        - [ ] Ethernet
+        - [ ] Address Resolution Protocol
+        - [ ] Domain Name System
+        - [ ] Dynamic Host Configuration Protocol
+        - [ ] Open Shortest Path First
+    - [ ] Communications Models
+        - [ ] Open Systems Interconnection
+        - [ ] TCP/IP Stack
+- [ ] Basic L3
+    - [ ] IP, IP Address and Subnet Mask
+    - [ ] Binary-Decimal-Binary conversion
+    - [ ] Meaning of the Mask
+    - [ ] Configuring IP Addresses
+        - [ ] Windows/Linux
+        - [ ] Cisco Routers
+    - [ ] Types and Classes of IP Addresses
+    - [ ] Basic routing
+        - [ ] Local network
+        - [ ] Default gateway
+            - [ ] ip default-gateway
+        - [ ] Static routing
+- [ ] Basic L1, L2
+    - [ ] Cables and connectors
+        - [ ] Coaxial, UTP, MMF, SMF
+        - [ ] CRC errors
+    - [ ] Multiaccess: Collisions and duplex
+        - [ ] Duplex/speed mismatch
+    - [ ] Point-to-point: PPP, HDLC, P2P FR
+    - [ ] Power over Ethernet
+    - [ ] Wireless principles
+        - [ ] Channels
+        - [ ] SSID
+        - [ ] Encryption
+    - [ ] Switch operation
+        - [ ] Ethernet Frame format
+        - [ ] MAC address learning and aging
+        - [ ] MAC address table
+        - [ ] Frame switching
+            - [ ] Flood
+            - [ ] Forward
+            - [ ] Filter
+        - [ ] Frame processing
+            - [ ] Store-and-forward
+            - [ ] Cut-through
+            - [ ] Fragment-free
+        - [ ] CDP/LLDP
+- [ ] Internet Protocol
+    - [ ] Subnetting
+    - [ ] DHCP
+        - [ ] Server
+        - [ ] Relay
+    - [ ] IPv6
+        - [ ] Addresses
+            - [ ] EUI-64
+        - [ ] Configuration
+        - [ ] Types
+            - [ ] GUA
+            - [ ] ULA
+            - [ ] LLA
+            - [ ] Multicast, anycast
+- [ ] Applications
+    - [ ] TCP/UDP ports
+    - [ ] DNS
+    - [ ] NTP
+    - [ ] SNMP
+        - [ ] snmpget, snmpwalk
+    - [ ] Syslog
+    - [ ] [T]FTP
+        - [ ] Reliability
+    - [ ] QoS
+        - [ ] Classification
+        - [ ] Marking
+        - [ ] Queuing
+        - [ ] Congestion
+        - [ ] Policing
+        - [ ] Shaping
+- [ ] L2 VLANs
+    - [ ] Creation, renaming
+    - [ ] Access
+        - [ ] Data VLAN
+        - [ ] Voice VLAN
+    - [ ] Trunk
+        - [ ] 802.1Q
+            - [ ] Native VLAN
+        - [ ] ISL
+    - [ ] Default VLANs
+    - [ ] VTP
+- [ ] IP Routing
+    - [ ] Routing table
+        - [ ] AD
+        - [ ] Metric
+        - [ ] Adding routes to RT
+        - [ ] Choosing routes
+    - [ ] IPv4, IPv6 static routes
+        - [ ] Host route
+        - [ ] Network route
+        - [ ] Default route
+        - [ ] Floating route
+        - [ ] Host route
+        - [ ] Host route
+    - [ ] OSPFv2
+        - [ ] Neighbors
+        - [ ] Router ID
+        - [ ] Network types
+            - [ ] point-to-point
+            - [ ] broadcast
+    - [ ] FHRP Protocols
+- [ ] Internet
+    - [ ] Remote access
+        - [ ] Usernames/passwords
+            - [ ] Complexity
+            - [ ] Local vs AAA
+            - [ ] Multifactor
+            - [ ] Certificates
+        - [ ] Telnet
+        - [ ] SSH
+    - [ ] Access control lists
+        - [ ] Interface
+        - [ ] Line VTY
+    - [ ] Private vs Public IP Addresses
+    - [ ] Network Address Translation
+        - [ ] Static
+        - [ ] Dynamic
+        - [ ] PAT
+    - [ ] Virtual Private Elements
+        - [ ] Remote Access
+        - [ ] Site-to-Site
+    - [ ] Security concepts
+        - [ ] Threat
+        - [ ] Vulnerability
+        - [ ] Exploit
+        - [ ] Payload
+        - [ ] Mitigation
+    - [ ] Security elements
+        - [ ] User awareness
+        - [ ] User training
+        - [ ] Physical access control
+- [ ] Ethernet
+    - [ ] Spanning Tree Protocol
+        - [ ] Root Bridge
+        - [ ] Port Roles
+        - [ ] Port States
+        - [ ] PortFast
+    - [ ] EtherChannel
+        - [ ] Layer 2
+        - [ ] Layer 3
+    - [ ] Layer 2 Security
+        - [ ] Port Security
+        - [ ] DHCP Snooping
+        - [ ] Dynamic ARP Inspection
+    - [ ] Wireless LAN
+        - [ ] Components and modes
+            - [ ] AP
+            - [ ] WLC
+            - [ ] Access/Trunk ports
+            - [ ] LAG
+        - [ ] AP, WLC management
+            - [ ] telnet
+            - [ ] SSH
+            - [ ] HTTP(S)
+            - [ ] console
+            - [ ] TACACS+/RADIUS
+            - [ ] WEP, WPA, WPA2, WPA3
+        - [ ] Configuration
+            - [ ] Create WLAN
+            - [ ] Configure security settings
+            - [ ] Configure QoS profiles
+            - [ ] Advanced VLAN settings
+- [ ] Automation
+    - [ ] Impact of automation
+    - [ ] Traditional vs controller-based networking
+    - [ ] controller-based and software defined architectures
+        - [ ] Overlay
+        - [ ] Underlay
+        - [ ] Fabric
+    - [ ] Control-plane and data-plane separation
+    - [ ] North-bound vs south-bound API
+    - [ ] Cisco DNA Center device management
+    - [ ] REST-based APIs
+        - [ ] CRUD
+        - [ ] HTTP verbs
+        - [ ] Data encoding
+            - [ ] XML
+            - [ ] JSON
+            - [ ] YAML
+    - [ ] Configuration management mechanisms
+        - [ ] Puppet
+        - [ ] Chef
+        - [ ] Ansible
