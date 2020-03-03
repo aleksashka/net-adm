@@ -33,18 +33,19 @@
     - [x] Communications Models
         - [x] Open Systems Interconnection
         - [x] TCP/IP Stack
-- [ ] Basics of IP
-    - [ ] Binary-Decimal-Binary conversion
-    - [ ] Meaning of the Mask
-    - [ ] Configuring IP Addresses
-        - [ ] Windows/Linux
-        - [ ] Cisco Routers
-    - [ ] Types and Classes of IP Addresses
-    - [ ] Basic routing
-        - [ ] Local network
-        - [ ] Default gateway
-            - [ ] ip default-gateway
-        - [ ] Static routing
+- [x] Basics of IP
+    - [x] Binary-Decimal-Binary conversion
+    - [x] IP, IP Address and Subnet Mask
+    - [x] Meaning of the Mask
+    - [x] Configuring IP Addresses
+        - [x] Windows/Linux
+        - [x] Cisco Routers
+    - [x] Types and Classes of IP Addresses
+    - [x] Basic routing
+        - [x] Local network
+        - [x] Default gateway
+            - [x] ip default-gateway
+        - [x] Static routing
 - [ ] Basic L1, L2
     - [ ] Cables and connectors
         - [ ] Coaxial, UTP, MMF, SMF
@@ -148,7 +149,7 @@
         - [ ] Static
         - [ ] Dynamic
         - [ ] PAT
-    - [ ] Virtual Private Elements
+    - [ ] Virtual Private Network
         - [ ] Remote Access
         - [ ] Site-to-Site
     - [ ] Security concepts
