@@ -9,7 +9,7 @@ vim: set syntax=markdown colorcolumn=49:
 +++
 
 ### Network components
-@ul[](false)
+@ul
 - Routers
 - Switches
 - L3 Switches
@@ -23,7 +23,7 @@ vim: set syntax=markdown colorcolumn=49:
 +++
 
 ### Network topology architectures
-@ul[](false)
+@ul
 - 2-tier (Distribution, Access)
 - 3-tier (Core, Distribution, Access)
 - Spine-leaf
@@ -38,7 +38,7 @@ vim: set syntax=markdown colorcolumn=49:
 ### Network characteristics
 @snapend
 @snap[west]
-@ul[](false)
+@ul
 - #### Physical topologies
   - Bus
   - Star
@@ -48,7 +48,7 @@ vim: set syntax=markdown colorcolumn=49:
 @ulend
 @snapend
 @snap[east]
-@ul[](false)
+@ul
 - #### Logical topologies
   - Bus
   - Star
@@ -56,7 +56,7 @@ vim: set syntax=markdown colorcolumn=49:
 @ulend
 @snapend
 @snap[south]
-@ul[](false)
+@ul
 - Reliability
 - Availability
 - Scalability
@@ -66,7 +66,7 @@ vim: set syntax=markdown colorcolumn=49:
 +++
 
 ### Network protocols
-@ul[](false)
+@ul
 - Internet Protocol
 - Ethernet
 - Address Resolution Protocol
@@ -90,6 +90,12 @@ vim: set syntax=markdown colorcolumn=49:
 | 2 | Data Link    | Network Access |
 | 1 | Physical     |                |
 ```
+@[1-2]
+@[1-5]
+@[1-6]
+@[1-7]
+@[1-8]
+@[1-9]
 @snapend
 
 ---
@@ -99,7 +105,7 @@ vim: set syntax=markdown colorcolumn=49:
 +++
 
 ### Conversion
-@ul[](false)
+@ul
 - There are 10 types of people in the world. Those who understand binary and those who don’t.
 - Counting from 0 to 100 in decimal
 - Counting from 0 to 16 in binary
@@ -110,7 +116,7 @@ vim: set syntax=markdown colorcolumn=49:
 +++
 
 ### IP, IP Address and Mask
-@ul[](false)
+@ul
 - [RFC791](https://tools.ietf.org/html/rfc791)
 - IP Address and Mask:
   - 32 bit length
@@ -125,7 +131,7 @@ vim: set syntax=markdown colorcolumn=49:
 +++
 
 ### IP and Mask
-@ul[](false)
+@ul
 - Mask delimits network and host bits
 - `216.218.186.2/24`
   - `11011000.11011010.10111010.00000010`
@@ -144,7 +150,7 @@ Practice: Convert multiple numbers between decimal and binary systems
 +++
 
 ### IP and Mask
-@ul[](false)
+@ul
 - Mask delimits network and host bits
 - `216.218.186.2/24`
   - `216.218.186.0` - network address
@@ -160,7 +166,7 @@ Calculate boundaries of several classful networks
 +++
 
 ### Configuring IP Addresses
-@ul[](false)
+@ul
 - Windows
   - Start > Settings > Network & Internet > Ethernet > Select network > IP Assignment > Edit
 - Linux config is distribution-specific
@@ -171,7 +177,7 @@ Calculate boundaries of several classful networks
 +++
 
 ### Checking IP Addresses
-@ul[](false)
+@ul
 - Windows:
   - `ipconfig`
 - Linux:
@@ -185,7 +191,7 @@ Calculate boundaries of several classful networks
 +++
 
 ### Cisco IOS
-@ul[](false)
+@ul
 - Cisco Internetwork Operating System
 - Runs on many Cisco routers and switches
 - Same look and feel among different models
@@ -211,6 +217,14 @@ R(config-if)#no shutdown
 R(config-if)#end
 R#
 ```
+@[1]
+@[1-2]
+@[1-3]
+@[1-4]
+@[1-5]
+@[1-6]
+@[1-7]
+@[1-8]
 
 +++
 
@@ -224,11 +238,18 @@ R#
 #ping 172.16.1.1
 #ping 172.16.1.2
 ```
+@[1]
+@[1-2]
+@[1-3]
+@[1-4]
+@[1-5]
+@[1-6]
+@[1-7]
 
 +++
 
 ### Types of IP Addresses
-@ul[](false)
+@ul
 - Localhost: Local communication only (127.0.0.0/8)
 - Unicast: One-to-one communication (e.g. 10.1.1.1)
 - Multicast: One-to-many communication (e.g. 224.0.0.5)
@@ -238,7 +259,7 @@ R#
 
 +++
 ### Classes of IP Addresses
-@ul[](false)
+@ul
 - Class A: First bit is `0` (Unicast /8)
 - Class B: First bits are `10` (Unicast /16)
 - Class C: First bits are `110` (Unicast /24)
@@ -249,7 +270,7 @@ R#
 +++
 
 ### Routing basics
-@ul[](false)
+@ul
 - IP and Mask of the interface show a network and all IP addresses in this network (`neighbors`)
 - Communication with `neighbors` is `direct`
 - Communication with others should be through a [default] `gateway` or `router`
@@ -260,7 +281,7 @@ R#
 +++
 
 ### IP Routing
-@ul[](false)
+@ul
 - Routers can only reach known networks (present in `routing table` shown by `show ip route`)
   - If destination address of an incoming packet is not in the routing table, then the packet is dropped
 - Sources of routing information:
@@ -277,7 +298,7 @@ Q: What do you have in your routing tables? What is the source of those routes?
 
 ### Static routing
 NetA --- `R1` --- NetB --- `R2` --- NetC --- `R3` --- NetD
-@ul[](false)
+@ul
 - R1:
   - NetA, NetB - `C`
   - NetC, NetD - `?`
@@ -290,7 +311,7 @@ NetA --- `R1` --- NetB --- `R2` --- NetC --- `R3` --- NetD
 ### Static routing
 NetA --- `R1` --- NetB --- `R2` --- NetC --- `R3` --- NetD
 
-@ul[](false)
+@ul
 - NetA - `192.168.1.0`; NetB - `192.168.12.0`
 - NetC - `192.168.23.0`; NetD - `192.168.3.0`
 - `R1(config)#ip route 192.168.23.0 255.255.255.0 192.168.12.2`
@@ -312,6 +333,11 @@ R3:
 ip route 192.168.1.0  255.255.255.0 192.168.23.3
 ip route 192.168.12.0 255.255.255.0 192.168.23.3
 ```
+@[1]
+@[1-4]
+@[1,5-7]
+@[1,8-10]
+@[1-10]
 
 +++
 
