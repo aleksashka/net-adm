@@ -1,5 +1,5 @@
 ## ToC
-- [ ] Introduction
+- [x] Introduction
     - [x] Network components
         - [x] Routers
         - [x] Switches
@@ -46,31 +46,33 @@
         - [x] Default gateway
             - [x] ip default-gateway
         - [x] Static routing
-- [ ] Basic L1, L2
-    - [ ] Cables and connectors
-        - [ ] Coaxial, UTP, MMF, SMF
-        - [ ] CRC errors
-    - [ ] Multiaccess: Collisions and duplex
-        - [ ] Duplex/speed mismatch
-    - [ ] Point-to-point: PPP, HDLC, P2P FR
-    - [ ] Power over Ethernet
-    - [ ] Wireless principles
-        - [ ] Channels
-        - [ ] SSID
-        - [ ] Encryption
-    - [ ] Switch operation
-        - [ ] Ethernet Frame format
-        - [ ] MAC address learning and aging
-        - [ ] MAC address table
-        - [ ] Frame switching
-            - [ ] Flood
-            - [ ] Forward
-            - [ ] Filter
-        - [ ] Frame processing
-            - [ ] Store-and-forward
-            - [ ] Cut-through
-            - [ ] Fragment-free
-        - [ ] CDP/LLDP
+- [x] Basics of L1, L2
+    - [x] Cables and connectors
+        - [x] Coaxial, UTP, MMF, SMF
+    - [x] Collisions and duplex
+        - [x] Duplex, collisions and CSMA/CD
+        - [x] Duplex mismatch
+    - [x] Network types (P2P, P2M, etc)
+    - [x] Power over Ethernet
+    - [x] Wireless principles
+        - [x] Channels
+        - [x] SSID
+        - [x] Encryption
+    - [x] Switch operation
+        - [x] Ethernet frame format
+        - [x] MAC address learning and aging
+        - [x] MAC address table
+        - [x] Frame switching
+            - [x] Flood
+            - [x] Forward
+            - [x] Filter
+        - [x] Frame processing
+            - [x] Store-and-forward
+            - [x] Cut-through
+            - [x] Fragment-free
+        - [x] CDP/LLDP
+    - [x] Linking L2 and L3
+        - [x] ARP
 - [ ] Internet Protocol
     - [ ] Subnetting
     - [ ] DHCP
@@ -123,8 +125,6 @@
         - [ ] Network route
         - [ ] Default route
         - [ ] Floating route
-        - [ ] Host route
-        - [ ] Host route
     - [ ] OSPFv2
         - [ ] Neighbors
         - [ ] Router ID
