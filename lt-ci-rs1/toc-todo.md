@@ -1,5 +1,5 @@
 ## ToC
-- [ ] Introduction
+- [x] Introduction
     - [x] Network components
         - [x] Routers
         - [x] Switches
@@ -123,8 +123,6 @@
         - [ ] Network route
         - [ ] Default route
         - [ ] Floating route
-        - [ ] Host route
-        - [ ] Host route
     - [ ] OSPFv2
         - [ ] Neighbors
         - [ ] Router ID

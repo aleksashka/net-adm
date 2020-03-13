@@ -1,4 +1,4 @@
-# Long Term Networking
+# Basic Networking Course
 Note:
 vim: set syntax=markdown colorcolumn=49:
 
@@ -126,7 +126,7 @@ vim: set syntax=markdown colorcolumn=49:
 
 ### IP and Mask
 @ul[](false)
-- Mask delimits network and host bits
+- Mask delimits network bits and host bits
 - `216.218.186.2/24`
   - `11011000.11011010.10111010.00000010`
   - `11111111.11111111.11111111.00000000`
@@ -145,12 +145,13 @@ Practice: Convert multiple numbers between decimal and binary systems
 
 ### IP and Mask
 @ul[](false)
-- Mask delimits network and host bits
+- Mask delimits network bits and host bits
 - `216.218.186.2/24`
   - `216.218.186.0` - network address
   - `216.218.186.1` - first address
   - `216.218.186.254` - last address
   - `216.218.186.255` - broadcast address
+- Formula to find number of addresses based on number of host bits
 @ulend
 
 Note:
@@ -166,6 +167,8 @@ Calculate boundaries of several classful networks
 - Linux config is distribution-specific
 - Cisco router:
   - `Router(config-if)# ip address 216.218.186.2 255.255.255.0`
+- All IP addresses are bound to the broadcast domain
+- IP network <=> Broadcast domain
 @ulend
 
 +++
@@ -200,8 +203,8 @@ Calculate boundaries of several classful networks
 +++
 
 ### Working with IOS
+First, [connect](https://www.cisco.com/c/en/us/td/docs/routers/access/800/hardware/installation/guide/800HIG/connecting.html#25893) to console port, then open [terminal](https://www.cisco.com/c/en/us/support/docs/smb/switches/cisco-small-business-300-series-managed-switches/smb4984-access-the-cli-via-putty-using-a-console-connection-on-300-a.html) with [correct settings](https://www.cisco.com/c/en/us/support/docs/dial-access/asynchronous-connections/9321-terminal-settings.html#solution) (9600,8,N,1) and press Enter
 ```text
-! Connect using console and press Enter
 Router>enable
 Router#configure terminal
 Router(config)#hostname R
