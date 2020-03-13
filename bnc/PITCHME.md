@@ -67,13 +67,19 @@ vim: set syntax=markdown colorcolumn=49:
 
 ### Network protocols
 @ul[](false)
-- Internet Protocol
-- Ethernet
-- Address Resolution Protocol
-- Domain Name System
-- Dynamic Host Configuration Protocol
-- Open Shortest Path First
+- [Internet Protocol][IP]
+- [Ethernet][Eth]
+- [Address Resolution Protocol][ARP]
+- [Domain Name System][DNS]
+- [Dynamic Host Configuration Protocol][DHCP]
+- [Open Shortest Path First][OSPF]
 @ulend
+[IP]: https://en.wikipedia.org/wiki/Internet_Protocol
+[Eth]: https://en.wikipedia.org/wiki/Ethernet
+[ARP]: https://en.wikipedia.org/wiki/Address_Resolution_Protocol
+[DNS]: https://en.wikipedia.org/wiki/Domain_Name_System
+[DHCP]: https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol
+[OSPF]: https://en.wikipedia.org/wiki/Open_Shortest_Path_First
 
 +++
 
@@ -315,6 +321,146 @@ R3:
 ip route 192.168.1.0  255.255.255.0 192.168.23.3
 ip route 192.168.12.0 255.255.255.0 192.168.23.3
 ```
+
+---
+
+## Basics of L1, L2
+
++++
+
+### Cables and connectors
+@ul[](false)
+- [Coaxial](https://en.wikipedia.org/wiki/Coaxial_cable)
+- [Twisted pair](https://en.wikipedia.org/wiki/Twisted_pair)
+- [Optical fiber cable](https://en.wikipedia.org/wiki/Optical_fiber_cable)
+  - [Multi-mode fiber](https://en.wikipedia.org/wiki/Multi-mode_optical_fiber)
+  - [Single-mode fiber](https://en.wikipedia.org/wiki/Single-mode_optical_fiber)
+- [Twisted pair connectors](https://en.wikipedia.org/wiki/Modular_connector#8P8C)
+  - [T568A/T568B](https://en.wikipedia.org/wiki/TIA/EIA-568#Wiring)
+    - [Straight-through/crossover](https://en.wikipedia.org/wiki/Medium-dependent_interface)
+- [Optical fiber connector](https://en.wikipedia.org/wiki/Optical_fiber_connector)
+@ulend
+
++++
+
+### Collisions and duplex
+@ul[](false)
+- Half-[duplex](https://en.wikipedia.org/wiki/Duplex_(telecommunications)) system - both parties can communicate with each other, but not simultaneously
+  - If more than one party transmits at the same time - a collision occurs, resulting in lost messages
+  - Carrier-sense multiple access with collision detection ([CSMA/CD](https://en.wikipedia.org/wiki/Carrier-sense_multiple_access_with_collision_detection))
+- Full-duplex - no need for CSMA/CD
+  - Duplex mismatch might cause late collisions
+@ulend
+
++++
+
+### Network types
+@ul[](false)
+- Point-to-point network
+- Point-to-multipoint network
+- Non-broadcast multiple-access network
+- Broadcast network
+  - [Ethernet hub](https://en.wikipedia.org/wiki/Ethernet_hub)
+@ulend
+
++++
+
+### [Power over Ethernet](https://en.wikipedia.org/wiki/Power_over_Ethernet)
+@ul[](false)
+- [PoE](https://en.wikipedia.org/wiki/Power_over_Ethernet#Standard_implementation) is used to pass electric power along with data on twisted pair Ethernet cabling
+- Powered Device (PD) can provide it's class (0, 1, 2, 3, 4, etc) to Power Sourcing Equipment (PSE) for effective power allocation
+- IEEE Stadards:
+  - 802.3af-2003 - ≤ 15.4 W (PoE, Type 1)
+  - 802.3at-2009 - ≤ 30.0 W (PoE+, Type 2)
+  - 802.3bt-2018 - ≤ 60 or 100 W (Type 3, 4)
+@ulend
+
++++
+
+### Basics of wireless networks
+@ul[](false)
+- [IEEE 802.11](https://en.wikipedia.org/wiki/IEEE_802.11) - specifies WLAN implementations
+- Each band (e.g. [2.4 GHz](https://en.wikipedia.org/wiki/List_of_WLAN_channels#2.4_GHz_(802.11b/g/n/ax)), [5 GHz](https://en.wikipedia.org/wiki/List_of_WLAN_channels#5_GHz_or_5.8_GHz_(802.11a/h/j/n/ac/ax))) has multiple [channels](https://en.wikipedia.org/wiki/List_of_WLAN_channels) - frequency slots, used by different Access Points (AP) in order not to interfere with each other
+- 2.4 GHz signal travels further than 5 GHz and better propagates through obstacles
+- 2.4 GHz band has more sources of noise (microwave ovens, wireless videocameras, headphones, etc)
+@ulend
+
++++
+
+### Wireless [Service Sets][SS]
+@ul[](false)
+- Service Set Identifier (SSID) - name of the wireless network
+- Basic Service Set (BSS) - a group of stations that all share the same wireless channel, SSID, and other wireless settings
+- BSSIDs (48-bit labels) identify devices within BSS
+- Extended Service Set (ESS) - multiple BSSs on a common logical network segment
+@ulend
+[SS]: https://en.wikipedia.org/wiki/Service_set_(802.11_network)
+
++++
+
+### [Wireless security][WiSec]
+@ul[](false)
+- Algorithms:
+  - [WEP][WEP]
+  - [WPA][WPA]
+  - [WPA2][WPA2]
+  - [WPA3][WPA3]
+- Key management:
+  - WPA-Personal
+  - WPA-Enterprise
+@ulend
+
+[WiSec]: https://en.wikipedia.org/wiki/Wireless_security
+[WEP]:   https://en.wikipedia.org/wiki/Wired_Equivalent_Privacy
+[WPA]:   https://en.wikipedia.org/wiki/Wi-Fi_Protected_Access
+[WPA2]:  https://en.wikipedia.org/wiki/WPA2
+[WPA3]:  https://en.wikipedia.org/wiki/WPA3
+
++++
+
+### Switch operation
+@ul[](false)
+- [Ethernet frame format](https://en.wikipedia.org/wiki/Ethernet_frame)
+  - Preamble (7), Start frame delimiter (1),
+  - Destintation MAC (6), Source MAC (6), Type(2),
+  - Payload (46-1500), Frame check sequence (4),
+  - Interpacket gap (12)
+- MAC address table management
+- Switching a frame
+  - Flood
+  - Forward
+  - Filter
+@ulend
+
++++
+
+### Frame processing
+@ul[](false)
+- Frame processing
+  - Store-and-forward
+  - Cut-through
+  - Fragment-free
+- How to detect neighboring switches?
+  - Cisco Discovery Protocol ([CDP][CDP])
+  - Link Layer Discovery Protocol ([LLDP][LLDP])
+@ulend
+[CDP]: https://en.wikipedia.org/wiki/Cisco_Discovery_Protocol
+[LLDP]: https://en.wikipedia.org/wiki/Link_Layer_Discovery_Protocol
+
++++
+
+### Linking L2 and L3
+@ul[](false)
+- Address Resolution Protocol
+  - Binds L3 and L2 addresses together
+  - ARP request uses broadcast
+  - ARP reply uses unicast
+  - As well as broadcast (gratuitous ARP)
+- Should ARP be sent to destination IP?
+  - 172.16.1.5/24 -> 172.16.1.100
+  - 192.168.232.215/24 -> 172.16.1.100
+  - 192.168.232.215/24 -> 192.168.233.81
+@ulend
 
 +++
 
