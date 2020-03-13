@@ -246,6 +246,7 @@ R#
 #copy running-config startup-config
 #ping 172.16.1.1
 #ping 172.16.1.2
+#show ip interface [ brief ]
 ```
 @[1]
 @[1-2]
@@ -487,6 +488,135 @@ ip route 192.168.12.0 255.255.255.0 192.168.23.3
   - 192.168.232.215/24 -> 172.16.1.100
   - 192.168.232.215/24 -> 192.168.233.81
 @ulend
+
+---
+
+## Internet Protocol
+
++++
+
+### Subnetting
+@ul[](false)
+- A subnetwork or subnet is a part of an IP network
+- `10101100.00010000.00000000.00000000`
+- `nnnnnnnn.nnnnnnnn.hhhhhhhh.hhhhhhhh`
+  - One network with 2^16 addresses
+- `nnnnnnnn.nnnnnnnn.shhhhhhh.hhhhhhhh`
+  - 2^1 subnets with 2^15 addresses per subnet
+- `nnnnnnnn.nnnnnnnn.sssshhhh.hhhhhhhh`
+  - 2^4 subnets with 2^12 addresses per subnet
+@ulend
+
++++
+
+### DHCP
+@ul[](false)
+- Dynamic Host Configuration Protocol
+  - Client -> Server: Discover
+  - Server -> Client: Offer
+  - Client -> Server: Request
+  - Server -> Client: Acknowledge
+- Cisco DHCP Client
+  - `Router(config-if)#ip address dhcp`
+@ulend
+
++++
+
+### Cisco DHCP Server and Relay
+```text
+ip dhcp excluded-address 172.16.1.1 172.16.1.20
+ip dhcp pool POOL_NAME
+ network 172.16.1.0 255.255.255.0
+ default-router 172.16.1.1
+ dns-server 172.16.1.5
+ lease 0 10 0
+! Binding the pool to an interface?
+! What if there are 100 branches?
+interface Gi0/0
+ ip helper-address 172.30.1.6
+```
+
++++
+
+### IPv6 Reasons
+@ul[](false)
+- IPv4 address shortage
+  - Classless Inter-Domain Routing ([CIDR][CIDR])
+  - Variable-length subnet masking ([VLSM][VLSM])
+  - Network address translation ([NAT][NAT])
+- Lessons, learnt from IPv4
+  - No checksum
+  - No fragmentation on routers
+  - Easier address assignment
+@ulend
+[CIDR]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
+[VLSM]: https://en.wikipedia.org/wiki/Variable_length_subnet_mask
+[NAT]: https://en.wikipedia.org/wiki/Network_address_translation
+
++++
+
+### IPv6 Features
+@ul[](false)
+- IPv6 is a separate yet similar protocol
+- IPv4 addresses use 32 bits (&asymp;4,2&times;10^9)
+- IPv6 addresses use 128 bits (&asymp;3,4&times;10^38)
+- Addresses are written in hexadecimal symbols
+  - 128 bits per address
+  - 32 symbols per address (4 bits per symbol)
+  - 8 groups per address (4 symbols per group)
+  - Groups are separated by colons
+@ulend
+
++++
+
+### IPv6 Addresses
+@ul[](false)
+- 0010000000000001 0000110110111000 0000000000000000 0000000000000000 0000000000000000 0000000000000000 0000000000000000 0000000000000001
+- 2001:0db8:0000:0000:0000:0000:0000:0001
+- 2001:db8:0:0:0:0:0:1
+- 2001:db8::1
+- 2001:1900:3001:0011:0000:0000:0000:002c
+- 2001:1900:3001:11::2c
+@ulend
+
++++
+
+### IPv6 Address configuration
+```text
+interface GigabitEthernet0/1 ! mac aaaa.aabb.bbbb
+ ipv6 enable
+  !     fe80::a8aa:bbff:febb:bbbb
+ ipv6 address 2001:db8::/64 eui-64
+  ! 2001:db8::a8aa:bbff:febb:bbbb
+ ipv6 address 2001:db8::1/64 ! 2001:db8::1
+show ipv6 interface brief
+ ! fe80::a8aa:bbff:febb:bbbb, 2001:db8::1,
+ ! 2001:db8::a8aa:bbff:febb:bbbb
+```
+
++++
+
+### IPv6 Unicast Addresses
+@ul[](false)
+- Unicast:
+  - Link-local address (fe80::/10) - can only be used on a single directly attached network (link)
+  - Unique local address (fc00::/7) - routable only within private networks (no centralized registration)
+  - Global unicast address (2000::/3) - globally administered, globally routable
+@ulend
+
++++
+
+### IPv6 Multicast Addresses
+@ul[](false)
+- Multicast (ff00::/8) - sending to a group of interested receivers
+  - ff02::/8 - link-local scope
+    - ff02::1 - all-nodes multicast (RA)
+    - ff02::2 - all-routers multicast (RS)
+    - ff02::1:ff00:0/104 - solicited-node multicast ([NDP][NDP])
+      - ff02::1:ffbb:bbbb (MAC 33:33:ff:bb:bb:bb)
+@ulend
+
+[NDP]: https://en.wikipedia.org/wiki/Neighbor_Discovery_Protocol
 
 +++
 
