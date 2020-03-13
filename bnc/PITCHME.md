@@ -255,6 +255,7 @@ R#
 @[1-5]
 @[1-6]
 @[1-7]
+@[1-8]
 
 +++
 
@@ -356,7 +357,7 @@ ip route 192.168.12.0 255.255.255.0 192.168.23.3
 +++
 
 ### Cables and connectors
-@ul[](false)
+@ul
 - [Coaxial](https://en.wikipedia.org/wiki/Coaxial_cable)
 - [Twisted pair](https://en.wikipedia.org/wiki/Twisted_pair)
 - [Optical fiber cable](https://en.wikipedia.org/wiki/Optical_fiber_cable)
@@ -371,7 +372,7 @@ ip route 192.168.12.0 255.255.255.0 192.168.23.3
 +++
 
 ### Collisions and duplex
-@ul[](false)
+@ul
 - Half-[duplex](https://en.wikipedia.org/wiki/Duplex_(telecommunications)) system - both parties can communicate with each other, but not simultaneously
   - If more than one party transmits at the same time - a collision occurs, resulting in lost messages
   - Carrier-sense multiple access with collision detection ([CSMA/CD](https://en.wikipedia.org/wiki/Carrier-sense_multiple_access_with_collision_detection))
@@ -382,7 +383,7 @@ ip route 192.168.12.0 255.255.255.0 192.168.23.3
 +++
 
 ### Network types
-@ul[](false)
+@ul
 - Point-to-point network
 - Point-to-multipoint network
 - Non-broadcast multiple-access network
@@ -393,7 +394,7 @@ ip route 192.168.12.0 255.255.255.0 192.168.23.3
 +++
 
 ### [Power over Ethernet](https://en.wikipedia.org/wiki/Power_over_Ethernet)
-@ul[](false)
+@ul
 - [PoE](https://en.wikipedia.org/wiki/Power_over_Ethernet#Standard_implementation) is used to pass electric power along with data on twisted pair Ethernet cabling
 - Powered Device (PD) can provide it's class (0, 1, 2, 3, 4, etc) to Power Sourcing Equipment (PSE) for effective power allocation
 - IEEE Stadards:
@@ -405,7 +406,7 @@ ip route 192.168.12.0 255.255.255.0 192.168.23.3
 +++
 
 ### Basics of wireless networks
-@ul[](false)
+@ul
 - [IEEE 802.11](https://en.wikipedia.org/wiki/IEEE_802.11) - specifies WLAN implementations
 - Each band (e.g. [2.4 GHz](https://en.wikipedia.org/wiki/List_of_WLAN_channels#2.4_GHz_(802.11b/g/n/ax)), [5 GHz](https://en.wikipedia.org/wiki/List_of_WLAN_channels#5_GHz_or_5.8_GHz_(802.11a/h/j/n/ac/ax))) has multiple [channels](https://en.wikipedia.org/wiki/List_of_WLAN_channels) - frequency slots, used by different Access Points (AP) in order not to interfere with each other
 - 2.4 GHz signal travels further than 5 GHz and better propagates through obstacles
@@ -415,7 +416,7 @@ ip route 192.168.12.0 255.255.255.0 192.168.23.3
 +++
 
 ### Wireless [Service Sets][SS]
-@ul[](false)
+@ul
 - Service Set Identifier (SSID) - name of the wireless network
 - Basic Service Set (BSS) - a group of stations that all share the same wireless channel, SSID, and other wireless settings
 - BSSIDs (48-bit labels) identify devices within BSS
@@ -426,7 +427,7 @@ ip route 192.168.12.0 255.255.255.0 192.168.23.3
 +++
 
 ### [Wireless security][WiSec]
-@ul[](false)
+@ul
 - Algorithms:
   - [WEP][WEP]
   - [WPA][WPA]
@@ -446,7 +447,7 @@ ip route 192.168.12.0 255.255.255.0 192.168.23.3
 +++
 
 ### Switch operation
-@ul[](false)
+@ul
 - [Ethernet frame format](https://en.wikipedia.org/wiki/Ethernet_frame)
   - Preamble (7), Start frame delimiter (1),
   - Destintation MAC (6), Source MAC (6), Type(2),
@@ -462,7 +463,7 @@ ip route 192.168.12.0 255.255.255.0 192.168.23.3
 +++
 
 ### Frame processing
-@ul[](false)
+@ul
 - Frame processing
   - Store-and-forward
   - Cut-through
@@ -477,7 +478,7 @@ ip route 192.168.12.0 255.255.255.0 192.168.23.3
 +++
 
 ### Linking L2 and L3
-@ul[](false)
+@ul
 - Address Resolution Protocol
   - Binds L3 and L2 addresses together
   - ARP request uses broadcast
@@ -496,7 +497,7 @@ ip route 192.168.12.0 255.255.255.0 192.168.23.3
 +++
 
 ### Subnetting
-@ul[](false)
+@ul
 - A subnetwork or subnet is a part of an IP network
 - `10101100.00010000.00000000.00000000`
 - `nnnnnnnn.nnnnnnnn.hhhhhhhh.hhhhhhhh`
@@ -510,7 +511,7 @@ ip route 192.168.12.0 255.255.255.0 192.168.23.3
 +++
 
 ### DHCP
-@ul[](false)
+@ul
 - Dynamic Host Configuration Protocol
   - Client -> Server: Discover
   - Server -> Client: Offer
@@ -535,11 +536,21 @@ ip dhcp pool POOL_NAME
 interface Gi0/0
  ip helper-address 172.30.1.6
 ```
+@[1]
+@[1-2]
+@[1-3]
+@[1-4]
+@[1-5]
+@[1-6]
+@[1-7]
+@[1-8]
+@[1-9]
+@[1-10]
 
 +++
 
 ### IPv6 Reasons
-@ul[](false)
+@ul
 - IPv4 address shortage
   - Classless Inter-Domain Routing ([CIDR][CIDR])
   - Variable-length subnet masking ([VLSM][VLSM])
@@ -556,7 +567,7 @@ interface Gi0/0
 +++
 
 ### IPv6 Features
-@ul[](false)
+@ul
 - IPv6 is a separate yet similar protocol
 - IPv4 addresses use 32 bits (&asymp;4,2&times;10^9)
 - IPv6 addresses use 128 bits (&asymp;3,4&times;10^38)
@@ -570,7 +581,7 @@ interface Gi0/0
 +++
 
 ### IPv6 Addresses
-@ul[](false)
+@ul
 - 0010000000000001 0000110110111000 0000000000000000 0000000000000000 0000000000000000 0000000000000000 0000000000000000 0000000000000001
 - 2001:0db8:0000:0000:0000:0000:0000:0001
 - 2001:db8:0:0:0:0:0:1
@@ -593,11 +604,20 @@ show ipv6 interface brief
  ! fe80::a8aa:bbff:febb:bbbb, 2001:db8::1,
  ! 2001:db8::a8aa:bbff:febb:bbbb
 ```
+@[1]
+@[1-2]
+@[1-3]
+@[1-4]
+@[1-5]
+@[1-6]
+@[1-7]
+@[1-8]
+@[1-9]
 
 +++
 
 ### IPv6 Unicast Addresses
-@ul[](false)
+@ul
 - Unicast:
   - Link-local address (fe80::/10) - can only be used on a single directly attached network (link)
   - Unique local address (fc00::/7) - routable only within private networks (no centralized registration)
@@ -607,7 +627,7 @@ show ipv6 interface brief
 +++
 
 ### IPv6 Multicast Addresses
-@ul[](false)
+@ul
 - Multicast (ff00::/8) - sending to a group of interested receivers
   - ff02::/8 - link-local scope
     - ff02::1 - all-nodes multicast (RA)
