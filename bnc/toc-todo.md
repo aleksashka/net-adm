@@ -73,20 +73,20 @@
         - [x] CDP/LLDP
     - [x] Linking L2 and L3
         - [x] ARP
-- [ ] Internet Protocol
-    - [ ] Subnetting
-    - [ ] DHCP
-        - [ ] Server
-        - [ ] Relay
-    - [ ] IPv6
-        - [ ] Addresses
-            - [ ] EUI-64
-        - [ ] Configuration
-        - [ ] Types
-            - [ ] GUA
-            - [ ] ULA
-            - [ ] LLA
-            - [ ] Multicast, anycast
+- [x] Internet Protocol
+    - [x] Subnetting
+    - [x] DHCP
+        - [x] Server
+        - [x] Relay
+    - [x] IPv6
+        - [x] Addresses
+            - [x] EUI-64
+        - [x] Configuration
+        - [x] Types
+            - [x] GUA
+            - [x] ULA
+            - [x] LLA
+            - [x] Multicast, anycast
 - [ ] Applications
     - [ ] TCP/UDP ports
     - [ ] DNS
