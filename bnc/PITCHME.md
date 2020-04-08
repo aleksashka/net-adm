@@ -5,7 +5,7 @@ vim: set syntax=markdown colorcolumn=49:
 +++
 
 ### Introduction
-@ul[](false)
+@ul
 - No prerequisites
 - Course includes:
   - IPv4, IPv6, Ethernet, Wireless, QoS
