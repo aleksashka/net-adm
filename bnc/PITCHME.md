@@ -1,10 +1,19 @@
-# Basic Networking Course
+## Basic <br> Networking <br> Course
 Note:
 vim: set syntax=markdown colorcolumn=49:
 
----
++++
 
-## Introduction
+### Introduction
+@ul[](false)
+- No prerequisites
+- Course includes:
+  - IPv4, IPv6, Ethernet, Wireless, QoS
+  - Applications: DHCP, DNS, NTP, SNMP, Syslog, (T)FTP, Telnet, SSH
+  - Switching: VLANs, STP, EtherChannel, Port Security, DHCP Snooping, DAI
+  - Routing: Static IPv4/IPv6, OSPF IPv4
+  - Automation: Controller, APIs, data encoding
+@ulend
 
 +++
 
